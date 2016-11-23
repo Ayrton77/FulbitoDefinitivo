@@ -30,11 +30,7 @@ public class ABMTorneoControlador extends SpringTest {
 			)
 	{
 		
-		//usuarioquitar
-		UsuarioLoguiado us=new UsuarioLoguiado();
-		us.setNombreUsuarioLoguiado("user");
-		getSession().save(us);
-		//quitar
+		
 		
 		ModelMap ABMTorneoModelo=new ModelMap();
 		ABMTorneoModelo.put("listaDeTorneos", ABMTorneoService.mostrarListaDeEquiposDeUnUsuario(idUsuario));
@@ -52,12 +48,6 @@ public class ABMTorneoControlador extends SpringTest {
 		ABMTorneoModelo.put("idUsuario",idUsuario);
 		ABMTorneoModelo.put("torneo", new Torneo());
 		return new ModelAndView("agregarTorneoForm",ABMTorneoModelo);
-	}
-	public ABMTorneoService getABMTorneoService() {
-		return ABMTorneoService;
-	}
-	public void setABMTorneoService(ABMTorneoService aBMTorneoService) {
-		ABMTorneoService = aBMTorneoService;
 	}
 	//agregar2
 	@RequestMapping("usuario/{idUsuario}/agregarTorneo2")

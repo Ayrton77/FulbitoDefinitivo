@@ -34,6 +34,12 @@ public class Torneo {
 	@JoinColumn(name="idUsuarioLoguiado")
 	private UsuarioLoguiado usuarioLoguiado;
 	
+	//bdd con fecha
+	//bdd con equipo
+		@Column
+		@OneToMany (mappedBy="torneoFecha", cascade=CascadeType.ALL)
+	    private List <Fecha> listaDeFechas = new ArrayList <> ();
+	
 	//contructor 
 	public Torneo()
 	{
@@ -72,6 +78,14 @@ public class Torneo {
 
 	public void setUsuarioLoguiado(UsuarioLoguiado usuarioLoguiado) {
 		this.usuarioLoguiado = usuarioLoguiado;
+	}
+
+	public List<Fecha> getListaDeFechas() {
+		return listaDeFechas;
+	}
+
+	public void setListaDeFechas(List<Fecha> listaDeFechas) {
+		this.listaDeFechas = listaDeFechas;
 	}
 
 	

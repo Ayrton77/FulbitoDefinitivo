@@ -22,6 +22,9 @@ public class UsuarioLoguiado {
 	private String nombreUsuarioLoguiado;
 	
 	@Column
+	private String mailUsuarioRegistrado;
+	
+	@Column
 	private String contraseñaUsuarioLoguiadom;
 	
 	//bdd con torneo
@@ -65,6 +68,15 @@ public class UsuarioLoguiado {
 	public void setListaDeTorneos(List<Torneo> listaDeTorneos) {
 		this.listaDeTorneos = listaDeTorneos;
 	}
+
+	public String getMailUsuarioRegistrado() {
+		return mailUsuarioRegistrado;
+	}
+
+	public void setMailUsuarioRegistrado(String mailUsuarioRegistrado) {
+		this.mailUsuarioRegistrado = mailUsuarioRegistrado;
+	}
+	
 	
 	
 }

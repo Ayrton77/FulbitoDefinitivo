@@ -20,13 +20,14 @@ public class TorneoMock {
 	TorneoService torneoService;
 	
 	@RequestMapping(path="/addTorneo", method = RequestMethod.POST)
-    public ModelAndView addTorneo(@ModelAttribute("torneo") Torneo torneo, HttpServletRequest request) {
+    public ModelAndView addTorneo(String nombre, HttpServletRequest request) {
 	//Usuario usuarioValidado = personaService.validarUsuario(usuario.getUsuario(), usuario.getPassword());
 	//Torneo torneoAgregado =  torneoService.AgregarTorneo("Torneo1")
 		//String torneoAgregado = torneoService.verificarTorneo(torneo.getNombreTorneo());
 		Torneo torneoAgregado= new Torneo();
-		torneo.setNombreTorneo("Torneo1");
-	if(torneoAgregado.equals(torneo)){
+		torneoAgregado.setNombreTorneo("Torneo1");
+		
+	if(torneoAgregado.getNombreTorneo().equals(torneoService.verificarTorneo(nombre))){
 		//request.getSession().setAttribute("ROL",usuarioValidado.getRol());
 		ModelMap model = new ModelMap();
 		model.put("error", "torneo existente");
@@ -34,7 +35,9 @@ public class TorneoMock {
 	} 
 	else {
 		request.getSession().setAttribute("Torneo1", torneoAgregado);
-		return new ModelAndView("listaDeTorneos");
+		ModelMap model = new ModelMap();
+		model.put("torneonombre", torneoAgregado.getNombreTorneo());
+		return new ModelAndView("listaDeTorneos",model);
 	}
 	    }
 

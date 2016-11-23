@@ -11,26 +11,24 @@
 <title>ListaDeTorneos</title>
 </head>
 <body>
-	Lista de Torneos
+	Lista de Torneos buscados
 	<br>
+	
 	
 	<table>
 		
 			<c:forEach var="list" items="${listaDeTorneos}">
 	
 				<tr>
-					<td>${list.getNombreTorneo()}</td>
-					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/listaDefechas"> Empezar</a></td>
-					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/ver"> Ver equipo</a></td>
-					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/eliminarTorneo">Eliminar Torneo</a></td>
-					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/modificarTorneo1">Modificar Torneo</a></td>
-				</tr>
+					
+					<td><a href="/proyecto-base-spring/torneoBuscado/${list.getIdTorneo()}/menu">${list.getNombreTorneo()}</a></td>
+						</tr>
 	
 			</c:forEach>
 	
 	</table>
 	
-		<a href="/proyecto-base-spring/torneo/${idUsuario}/agregarTorneo1">Agregar Torneo</a>
+
 
 	
 </body>

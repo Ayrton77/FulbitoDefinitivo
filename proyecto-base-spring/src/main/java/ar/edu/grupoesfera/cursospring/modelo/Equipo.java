@@ -35,7 +35,10 @@ public class Equipo {
 		@ManyToOne(fetch = FetchType.LAZY)
 		@JoinColumn(name="idTorneo")
 		private Torneo torneo;
-		
+	//bdd con llave
+		@ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name="idLlave")
+		private Llave llave;
 		
 		//--------constructor---------//
 		public Equipo() {
@@ -79,6 +82,14 @@ public class Equipo {
 
 		public void setTorneo(Torneo torneo) {
 			this.torneo = torneo;
+		}
+
+		public Llave getLlave() {
+			return llave;
+		}
+
+		public void setLlave(Llave llave) {
+			this.llave = llave;
 		}
 		
 		
