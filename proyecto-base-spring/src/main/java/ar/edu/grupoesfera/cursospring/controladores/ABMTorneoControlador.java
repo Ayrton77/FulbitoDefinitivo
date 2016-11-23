@@ -23,6 +23,18 @@ public class ABMTorneoControlador extends SpringTest {
 	
 	@Inject
 	private ABMTorneoService ABMTorneoService;
+	//Getter and setter del servicio
+	
+	public ABMTorneoService getABMTorneoService() {
+		return ABMTorneoService;
+	}
+	public void setABMTorneoService(ABMTorneoService aBMTorneoService) {
+		ABMTorneoService = aBMTorneoService;
+	}
+	//Getter and setter del servicio
+	
+	
+	
 	//lista
 	@RequestMapping("usuario/{idUsuario}/listaDeTorneos")
 	public ModelAndView mostrarListaDeTorneos(

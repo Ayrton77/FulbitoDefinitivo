@@ -61,11 +61,18 @@ public class RegistroLoginControlador {
 			
 		} catch (Exception e) {
 			home.put("mensajeError", e.getMessage());
+			home.put("mensajeError", "User invalido");
 			return new ModelAndView("errorJSP",home);
 		}
 	
 	}
 	
+	public RegistroLoginService getRegistroLoginService() {
+		return RegistroLoginService;
+	}
+	public void setRegistroLoginService(RegistroLoginService registroLoginService) {
+		RegistroLoginService = registroLoginService;
+	}
 	//logueo
 	@RequestMapping(value="home2",method=RequestMethod.POST)
 	public ModelAndView login(
@@ -86,6 +93,7 @@ public class RegistroLoginControlador {
 			
 		} catch (Exception e) {
 			home.put("mensajeError", e.getMessage());
+			home.put("mensajeError2", "Usuario Invalido");
 			return new ModelAndView("errorJSP",home);
 		}
 	
