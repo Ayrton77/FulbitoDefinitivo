@@ -8,18 +8,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 <title>Agregar Torneo Formulario</title>
 </head>
 <body>
-	<h3>Agregar Torneo formulario</h3>
-	<br>
-	<form:form action="/proyecto-base-spring/usuario/${idUsuario}/agregarTorneo2" modelAttribute="torneo" method="post">
-		
-		nombre
-		<form:input path="nombreTorneo"/>
-		
-		<input type="submit" value="agregar torneo">
-	</form:form>
-	<input type="button" onclick="history.back()" value="volver atras">
+<div class="container">
+	<div class="col-md-6 col-md-offset">
+		<h3>Agregar Torneo formulario</h3>
+		<form:form action="/proyecto-base-spring/usuario/${idUsuario}/agregarTorneo2" modelAttribute="torneo" method="post">
+		<div class="form-group">
+			<label for="Nombre">Nombre del torneo</label>
+			<form:input  class="form-control" path="nombreTorneo"/>
+		</div>
+		<div class="form-group">
+			<input class="btn bnt-warning" type="submit" value="agregar torneo">
+		</div>
+		</form:form>
+		<input type="button" class="btn btn-success" onclick="history.back()" value="Volver atras">
+
+	</div>
+</div>
 </body>
 </html>

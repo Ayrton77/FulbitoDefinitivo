@@ -8,27 +8,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<title>Pagina de Inicio</title>
 </head>
 <body>
-<h3>home</h3>
-<br>
-<h4>Login</h4>
-	<form:form modelAttribute="usuario" action="/proyecto-base-spring/home2" method="post">
-		User mail
-		<form:input path="mailUsuarioRegistrado"/>
-		user Contra
-		<form:input path="contraseñaUsuarioLoguiadom"/>
-		<input type="submit" value="Ingresar">
-	</form:form>
-<br>
-<h4>Registro</h4>
-<a href="/proyecto-base-spring/registro1">Registrarse</a>
-<br>
-<h4>Buscar Torneo</h4>
-<form:form modelAttribute="torneo" action="buscarTorneo" method="post">
-		<form:input path="nombreTorneo"/>
-		<input type="submit" value="Buscar torneo">
-	</form:form>
+<div class="container-fluid">
+	<div class="col-md-6 col-md-offset-3">
+			<h4>Login</h4>
+				<form:form modelAttribute="usuario" action="/proyecto-base-spring/home2" method="post">
+					<div class="form-group">
+						<label for="mail">Email</label>
+						<form:input class="form-control" path="mailUsuarioRegistrado"/>
+					</div>
+					<div class="form-group">
+						<label for="Contraseña">Contraseña</label>
+						<form:input type="password" class="form-control" path="contraseñaUsuarioLoguiadom"/>
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-success" value="Ingresar">
+					</div>					
+				</form:form>
+	</div>
+	<div class="col-md-6 col-md-offset-3">
+	<h4>Registro</h4>
+			<a href="/proyecto-base-spring/registro1" class="btn btn-warning">Registrarse</a>
+			<br>
+			<h4>Buscar Torneo</h4>
+			<div class="form-group">
+			<form:form modelAttribute="torneo" action="buscarTorneo" method="post">
+					<form:input class="form-control" path="nombreTorneo"/>
+					<input type="submit" class="btn btn-success" value="Buscar torneo">
+				</form:form>
+			</div>
+			
+	</div>
+			
+	
+</div>
+
 </body>
 </html>

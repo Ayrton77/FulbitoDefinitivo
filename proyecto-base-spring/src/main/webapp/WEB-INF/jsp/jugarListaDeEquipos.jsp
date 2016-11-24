@@ -8,13 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>	jugar lista de jugadores</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<title>	Jugar lista de jugadores</title>
 </head>
 <body>
-	jugar lista de jugadores
-	<br>
-	Jugadores e1:
-	<table>
+<div class="container">
+	<div class="col-md-6 col-md-offset-3">
+		Jugadores e1:
+	<table class="table table-striped">
 		
 			<c:forEach var="list" items="${listaJugadoresEquipo1}">
 	
@@ -26,7 +27,7 @@
 	
 	</table>
 	Jugadores e2:
-	<table>
+	<table class="table table-striped">
 		
 			<c:forEach var="list2" items="${listaJugadoresEquipo2}">
 	
@@ -37,8 +38,9 @@
 			</c:forEach>
 	
 	</table>
-		<a href="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/jugar2">Jugar</a>
-<input type="button" onclick="history.back()" value="volver atras">
-	
+	</div>
+<a class="btn btn-succes" href="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/jugar2">Jugar</a>
+<input type="button" class="btn btn-warning" onclick="history.back()" value="Volver atras">
+</div>
 </body>
 </html>

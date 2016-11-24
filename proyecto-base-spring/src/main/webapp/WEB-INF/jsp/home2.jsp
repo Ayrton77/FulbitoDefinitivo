@@ -7,22 +7,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>home 2</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<title>Fulbito - Perfil</title>
 </head>
 <body>
-<h4>Home 4</h4>
-<br>
-<h5>Bienvenido : ${userActivo.getNombreUsuarioLoguiado()}</h5>
-<br>
-¿que desea?
-<br>
-<a href="/proyecto-base-spring/usuario/${userActivo.getIdUsuarioLoguiado()}/listaDeTorneos">Ver Mis Torneos</a>
 
-<br>
-<h4>Buscar Torneo</h4>
-<form:form modelAttribute="torneo2" action="buscarTorneo" method="post">
-		<form:input path="nombreTorneo"/>
-		<input type="submit" value="Buscar torneo">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Fulbito</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="/proyecto-base-spring/usuario/${userActivo.getIdUsuarioLoguiado()}/listaDeTorneos">Ver Mis Torneos</a></li> 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+       <li><a href="#">${userActivo.getNombreUsuarioLoguiado()}</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+	<div class="col-md-6 col-md-offset-3">
+		<form:form modelAttribute="torneo2" action="buscarTorneo" method="post">
+		<div class="form-group">
+			<label for="Busqueda">Buscar torneo</label>
+			<form:input class="form-control" path="nombreTorneo"/>
+		</div>
+		<div class="form-group">
+		<input type="submit" class="btn btn-primary" value="Buscar torneo">
+		</div>	
 	</form:form>
+	</div>
+</div>
 </body>
 </html>

@@ -8,13 +8,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 <title>ListaDeTorneos</title>
 </head>
 <body>
-	Lista de Torneos
-	<br>
+<div class="container">
 	
-	<table>
+	<div class="col-md-6 col-md-offset-3">
+		<h4>Lista de torneos</h4>
+		<table class="table table-striped">
 		
 			<c:forEach var="list" items="${listaDeTorneos}">
 	
@@ -30,8 +33,9 @@
 	
 	</table>
 	
-		<a href="/proyecto-base-spring/torneo/${idUsuario}/agregarTorneo1">Agregar Torneo</a>
-
-	<input type="button" onclick="history.back()" value="volver atras">
+	<input class="btn-btn-warning" type="button" onclick="history.back()" value="volver atras">
+	<a class="btn btn-success" href="/proyecto-base-spring/torneo/${idUsuario}/agregarTorneo1">Agregar Torneo</a>
+	</div>
+</div>
 </body>
 </html>
