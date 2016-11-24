@@ -19,6 +19,13 @@ import ar.edu.grupoesfera.cursospring.servicios.RegistroLoginService;
 @RestController
 public class RegistroLoginControlador {
 
+	public RegistroLoginService getRegistroLoginService() {
+		return RegistroLoginService;
+	}
+	public void setRegistroLoginService(RegistroLoginService registroLoginService) {
+		RegistroLoginService = registroLoginService;
+	}
+
 	@Inject
 	private RegistroLoginService RegistroLoginService;
 	

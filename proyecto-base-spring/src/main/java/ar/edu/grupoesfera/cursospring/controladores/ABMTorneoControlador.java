@@ -65,6 +65,12 @@ public class ABMTorneoControlador extends SpringTest {
 		return new ModelAndView("listaDeTorneos",ABMTorneoModelo);
 	}
 	
+	public ABMTorneoService getABMTorneoService() {
+		return ABMTorneoService;
+	}
+	public void setABMTorneoService(ABMTorneoService aBMTorneoService) {
+		ABMTorneoService = aBMTorneoService;
+	}
 	//eliminar
 	@RequestMapping("Usuario/{idUsuario}/Torneo/{idTorneo}/eliminarTorneo")
 	public ModelAndView eliminarTorneo(

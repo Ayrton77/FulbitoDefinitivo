@@ -22,6 +22,12 @@ public class ABMEquipoControlador extends SpringTest{
 	@Inject
 	private ABMEquipoService ABMEquipoService;
 	
+	public ABMEquipoService getABMEquipoService() {
+		return ABMEquipoService;
+	}
+	public void setABMEquipoService(ABMEquipoService aBMEquipoService) {
+		ABMEquipoService = aBMEquipoService;
+	}
 	@RequestMapping("Usuario/{idUsuario}/Torneo/{idTorneo}/ver")
 	public ModelAndView mostrarlistaDeEquipos(
 			@PathVariable("idTorneo") Long idTorneo,
