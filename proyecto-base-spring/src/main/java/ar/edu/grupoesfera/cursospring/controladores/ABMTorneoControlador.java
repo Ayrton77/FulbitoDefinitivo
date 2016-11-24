@@ -74,6 +74,7 @@ public class ABMTorneoControlador extends SpringTest {
 		ABMTorneoService.crearUnTorneo(nombreTorneo,getSession().get(UsuarioLoguiado.class, idUsuario));
 		ABMTorneoModelo.put("listaDeTorneos", ABMTorneoService.mostrarListaDeEquiposDeUnUsuario(idUsuario));
 		ABMTorneoModelo.put("idUsuario",idUsuario);
+		//ABMTorneoModelo.put("idUser","id");
 		return new ModelAndView("listaDeTorneos",ABMTorneoModelo);
 	}
 	

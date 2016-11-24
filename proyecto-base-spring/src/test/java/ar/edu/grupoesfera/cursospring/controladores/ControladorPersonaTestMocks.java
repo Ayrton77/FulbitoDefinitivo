@@ -41,10 +41,11 @@ public class ControladorPersonaTestMocks {
 	public void VerificarQueVuelveAlLoginSiElUserEsIncorrecto() throws Exception{
 		//personaServiceMock.crearUsuario(anyString(), anyString(), anyString());
 		when(this.personaServiceMock.validarLogin(anyString(), anyString())).thenReturn(null);
-		ModelAndView mav2 = controladorPersonaMock.registro2("asdasd","asdas@hotmail.com","password01");
+		//when(personaServiceMock.buscarUnUsuarioPorMail(anyString())).thenReturn(null);
+		//ModelAndView mav2 = controladorPersonaMock.registro2("asdasd","asdas@hotmail.com","password01");
 		ModelAndView mav = controladorPersonaMock.login(PersonaMock.getMailUsuarioRegistrado(), PersonaMock.getContraseñaUsuarioLoguiadom());
-		assertThat(mav2.getViewName()).isEqualTo("errorJSP");
-		assertThat(mav2.getModel().get("mensajeError")).isEqualTo("User invalido");
+		assertThat(mav.getViewName()).isEqualTo("errorJSP");
+		assertThat(mav.getModel().get("mensajeError")).isEqualTo("User invalido");
 	}
 
 }
