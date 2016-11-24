@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -35,10 +36,14 @@ public class Equipo {
 		@ManyToOne(fetch = FetchType.LAZY)
 		@JoinColumn(name="idTorneo")
 		private Torneo torneo;
-	//bdd con llave
+		
+		//--------------------mecanica-------------//
+		//bddconequipo
 		@ManyToOne(fetch = FetchType.LAZY)
-		@JoinColumn(name="idLlave")
-		private Llave llave;
+		@JoinColumn(name="idPartido")
+		private Partido partido;
+		//----------------mechanica---------//
+		
 		
 		//--------constructor---------//
 		public Equipo() {
@@ -84,13 +89,14 @@ public class Equipo {
 			this.torneo = torneo;
 		}
 
-		public Llave getLlave() {
-			return llave;
+		public Partido getPartido() {
+			return partido;
 		}
 
-		public void setLlave(Llave llave) {
-			this.llave = llave;
+		public void setPartido(Partido partido) {
+			this.partido = partido;
 		}
+
 		
 		
 		

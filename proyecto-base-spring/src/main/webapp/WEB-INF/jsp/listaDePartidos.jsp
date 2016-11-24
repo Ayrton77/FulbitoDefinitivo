@@ -8,18 +8,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Agregar Jugador Formulario</title>
+<title>ListaDeFechas</title>
 </head>
 <body>
-	<h3>Agregar Jugador formulario</h3>
+<h3>lista de paridos de la fecha ${idFecha}</h3>
+
+<br>
+<c:forEach var="list" items="${listaDePartidos}">
 	<br>
-	<form:form action="/proyecto-base-spring/${idEquipo}/agregarJugador2" modelAttribute="jugador" method="post">
-		
-		nombre
-		<form:input path="nombreJugador"/>
-		
-		<input type="submit" value="agregarJugador">
-	</form:form>
-	<input type="button" onclick="history.back()" value="volver atras">
+	Partido n: 
+	${list.getIdPartido()}
+	<a href="/proyecto-base-spring/Torneo/${idTorneo }/fecha/${idFecha}/partido/${list.getIdPartido()}/listaDeEquipo">agregar equipo al partido</a>
+	
+	
+	
+</c:forEach>
+	<br>
+	<a href="/proyecto-base-spring/Torneo/${idTorneo}/fecha/${idFecha}/agregarPartido">agregar PARTIDO</a>
+<input type="button" onclick="history.back()" value="volver atras">
 </body>
 </html>

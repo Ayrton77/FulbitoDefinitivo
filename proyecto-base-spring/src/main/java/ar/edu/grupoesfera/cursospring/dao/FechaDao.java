@@ -1,4 +1,4 @@
-package ar.edu.grupoesfera.cursospring.servicios;
+package ar.edu.grupoesfera.cursospring.dao;
 
 import java.util.List;
 
@@ -6,7 +6,9 @@ import ar.edu.grupoesfera.cursospring.modelo.Fecha;
 import ar.edu.grupoesfera.cursospring.modelo.Partido;
 import ar.edu.grupoesfera.cursospring.modelo.Torneo;
 
-public interface FechaService {
+public interface FechaDao {
+	
+	
 	
 	public Partido buscarPartidoPorId(Long idPartido);
 	
@@ -21,5 +23,4 @@ public interface FechaService {
 	public List<Partido> mostarListaDePartidosPorFecha(Long idFecha); 
 	
 	public void crearPartidoXFechaser(Fecha fecha);
-
 }

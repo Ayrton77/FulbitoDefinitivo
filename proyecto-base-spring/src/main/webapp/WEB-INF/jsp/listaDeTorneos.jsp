@@ -20,7 +20,7 @@
 	
 				<tr>
 					<td>${list.getNombreTorneo()}</td>
-					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/listaDefechas"> Empezar</a></td>
+					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/listaDefechas"> fechas</a></td>
 					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/ver"> Ver equipo</a></td>
 					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/eliminarTorneo">Eliminar Torneo</a></td>
 					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/modificarTorneo1">Modificar Torneo</a></td>
@@ -32,6 +32,6 @@
 	
 		<a href="/proyecto-base-spring/torneo/${idUsuario}/agregarTorneo1">Agregar Torneo</a>
 
-	
+	<input type="button" onclick="history.back()" value="volver atras">
 </body>
 </html>

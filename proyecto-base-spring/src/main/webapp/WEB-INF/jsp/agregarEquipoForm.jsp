@@ -19,5 +19,6 @@
 		
 		<input type="submit" value="agregar equipo">
 	</form:form>
+	<input type="button" onclick="history.back()" value="volver atras">
 </body>
 </html>

@@ -28,7 +28,7 @@
 	
 	</table>
 	
-
+<input type="button" onclick="history.back()" value="volver atras">
 
 	
 </body>

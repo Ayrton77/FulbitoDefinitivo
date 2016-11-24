@@ -35,11 +35,12 @@ public class Torneo {
 	private UsuarioLoguiado usuarioLoguiado;
 	
 	//bdd con fecha
-	//bdd con equipo
-		@Column
-		@OneToMany (mappedBy="torneoFecha", cascade=CascadeType.ALL)
-	    private List <Fecha> listaDeFechas = new ArrayList <> ();
 	
+	@Column
+	@OneToMany (mappedBy="torneoFecha", cascade=CascadeType.ALL)
+    private List <Fecha> listaDeFechas = new ArrayList <> ();
+	//bdd con equipo
+		
 	//contructor 
 	public Torneo()
 	{
@@ -87,6 +88,7 @@ public class Torneo {
 	public void setListaDeFechas(List<Fecha> listaDeFechas) {
 		this.listaDeFechas = listaDeFechas;
 	}
+
 
 	
 	

@@ -17,5 +17,6 @@
 	<form:input path="nombreJugador"/>
 	<input type="submit" value="Modificar Jugador">
 </form:form>
+<input type="button" onclick="history.back()" value="volver atras">
 </body>
 </html>

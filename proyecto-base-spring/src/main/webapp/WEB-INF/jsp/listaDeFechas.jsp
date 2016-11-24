@@ -12,24 +12,19 @@
 </head>
 <body>
 <h3>ListaDeFechas</h3>
+
 <br>
 <c:forEach var="list" items="${listaDeFechas}">
 	<br>
 	fecha n: ${list.getIdFecha()}
 	
-	<h3>lista de llaves</h3>
-	<c:forEach var="list2" items="${listaDeLlaves}">
-	<br>
-	llave ${list2.getIdLlave()}
+	<a href="/proyecto-base-spring/Torneo/${idTorneo}/fecha/${list.getIdFecha()}/ver">ver fecha</a>
 	
 	
-	</c:forEach>
-	
-	<br>
-	<a href="/proyecto-base-spring/Torneo/${idTorneo}/fecha/${list.getIdFecha()}/agregarLlave1">AgregarLlave</a>
-
 </c:forEach>
-
+	<br>
+	<a href="/proyecto-base-spring/Torneo/${idTorneo}/agregarFecha">AgregarFecha</a>
+<input type="button" onclick="history.back()" value="volver atras">
 
 </body>
 </html>

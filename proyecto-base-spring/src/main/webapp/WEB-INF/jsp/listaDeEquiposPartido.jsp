@@ -8,16 +8,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Modificar Equipo 1</title>
+<title>ListaDeEquiposEnPartido</title>
 </head>
 <body>
-<h3>Modificar Equipo 1</h3>
-<br>
-<form:form modelAttribute="equipo" action="/proyecto-base-spring/torneo/${idTorneo}/equipo/${idEquipo}/modificarEquipo2" method="post">
-	<form:input path="nombreEquipo"/>
-	<input type="submit" value="Modificar Equipo">
+	Lista de Equipos en partido
+	<br>
 	
-</form:form>
+	<table>
+		
+			<c:forEach var="list" items="${listaDeEquipos}">
+	
+				<tr>
+					<td>${list.getNombreEquipo()}</td>
+				</tr>
+	
+			</c:forEach>
+	
+	</table>
+	
+		<a href="/proyecto-base-spring/Torneo/${idTorneo} /partido/${idPartido}/agregarEquipoAPartido1">Agregar Equipo a partido</a>
+		<a href="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/jugar">Jugar</a>
 <input type="button" onclick="history.back()" value="volver atras">
+	
 </body>
 </html>

@@ -20,5 +20,6 @@
 		
 		<input type="submit" value="agregar torneo">
 	</form:form>
+	<input type="button" onclick="history.back()" value="volver atras">
 </body>
 </html>

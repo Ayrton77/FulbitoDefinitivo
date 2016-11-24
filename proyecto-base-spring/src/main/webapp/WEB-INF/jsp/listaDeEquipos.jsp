@@ -31,7 +31,7 @@
 	</table>
 	
 		<a href="/proyecto-base-spring/torneo/${idTorneo}/agregarEquipo1">Agregar Equipo</a>
-
+<input type="button" onclick="history.back()" value="volver atras">
 	
 </body>
 </html>

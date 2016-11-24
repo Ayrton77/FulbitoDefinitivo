@@ -1,6 +1,5 @@
 package ar.edu.grupoesfera.cursospring.servicios;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -8,40 +7,50 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ar.edu.grupoesfera.cursospring.dao.FechasDao;
-import ar.edu.grupoesfera.cursospring.modelo.Equipo;
+import ar.edu.grupoesfera.cursospring.dao.FechaDao;
 import ar.edu.grupoesfera.cursospring.modelo.Fecha;
+import ar.edu.grupoesfera.cursospring.modelo.Partido;
 import ar.edu.grupoesfera.cursospring.modelo.Torneo;
 
 @Service("fechaService")
 @Transactional
-public class fechaServiceImpl implements FechaService {
-	
-	//crear
+public class FechaServiceImpl implements FechaService {
+
 	@Inject
-	private FechasDao fechaDao;
-	
-	@Inject
-	private ABMEquipoService ABMEquiposService;
+	private FechaDao fechaDao;
 	
 	@Override
-	public void agregarFecha(Torneo torneo) {
-		fechaDao.agregarFechaALaBDD(torneo);		
+	public Partido buscarPartidoPorId(Long idPartido) {
+		return fechaDao.buscarPartidoPorId(idPartido);
 	}
-	//mostar
+
 	@Override
-	public List<Fecha> mostrarListaDeFechasDeUnTorneoPorId(Long idTorneo) {
-		return fechaDao.traerListaDeFechasDeLaBDDPorIdDeTorneo(idTorneo);
+	public void crearFecha(Torneo torneo) {
+		fechaDao.crearFecha(torneo);
+		
 	}
-	//1 solo torneo
+
 	@Override
-	public Torneo mostrarUnTorneoPorId(Long idTorneo) {
-		return fechaDao.traerUnTorneoDeLaBDDPorId(idTorneo);
+	public List<Fecha> mostrarListaDeFechasPorTorneo(Long idTorneo) {
+		return fechaDao.mostrarListaDeFechasPorTorneo(idTorneo);
 	}
-	//traer Una fecha
+
 	@Override
-	public Fecha mostrarUnaFechaPorId(Long idFecha) {
-		return fechaDao.traerUnaFechaPorId(idFecha);
+	public Fecha trearUnaFechaPorId(Long idFecha) {
+		return fechaDao.trearUnaFechaPorId(idFecha);
 	}
 	
+	@Override
+	public Torneo traerUnTorneoPorId(Long idTorneo) {
+		return fechaDao.traerUnTorneoPorId(idTorneo);
+	}
+	@Override
+	public List<Partido> mostarListaDePartidosPorFecha(Long idFecha) {
+		return fechaDao.mostarListaDePartidosPorFecha(idFecha);
+	}
+	@Override
+	public void crearPartidoXFechaser(Fecha fecha) {
+		fechaDao.crearPartidoXFechaser(fecha);
+		
+	}
 }

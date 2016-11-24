@@ -8,18 +8,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Agregar Jugador Formulario</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h3>Agregar Jugador formulario</h3>
-	<br>
-	<form:form action="/proyecto-base-spring/${idEquipo}/agregarJugador2" modelAttribute="jugador" method="post">
-		
-		nombre
-		<form:input path="nombreJugador"/>
-		
-		<input type="submit" value="agregarJugador">
-	</form:form>
-	<input type="button" onclick="history.back()" value="volver atras">
+prueba partido
+
+partidos
+<c:forEach var="list" items="${listaDeEquipos}">
+	s
+	${list.getNombreEquipo()}
+</c:forEach>
+
 </body>
 </html>

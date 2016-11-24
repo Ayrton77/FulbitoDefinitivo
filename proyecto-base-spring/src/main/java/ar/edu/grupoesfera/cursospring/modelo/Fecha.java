@@ -16,30 +16,26 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Fecha {
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idFecha;
 	
-	//bddConTorneo
+	//bdd oc partido
+	@Column
+	@OneToMany (mappedBy="fecha", cascade=CascadeType.ALL)
+    private List <Partido> listaDePartidos = new ArrayList <> ();
+	//bdd con torneo
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="idTorneo")
 	private Torneo torneoFecha;
 	
-	//bddConLlaves
-	@Column
-	@OneToMany (mappedBy="fecha", cascade=CascadeType.ALL)
-    private List <Llave> listaDeLlaves = new ArrayList <> ();
-	
-	
-	
-	//constructor
+	//C
 	public Fecha()
 	{
 		
 	}
-	//geters and set
-
+		//GT
 	public Long getIdFecha() {
 		return idFecha;
 	}
@@ -47,27 +43,21 @@ public class Fecha {
 	public void setIdFecha(Long idFecha) {
 		this.idFecha = idFecha;
 	}
-
+	public List<Partido> getListaDePartidos() {
+		return listaDePartidos;
+	}
+	public void setListaDePartidos(List<Partido> listaDePartidos) {
+		this.listaDePartidos = listaDePartidos;
+	}
 	public Torneo getTorneoFecha() {
 		return torneoFecha;
 	}
-
 	public void setTorneoFecha(Torneo torneoFecha) {
 		this.torneoFecha = torneoFecha;
 	}
 
-	public List<Llave> getListaDeLlaves() {
-		return listaDeLlaves;
-	}
 
-	public void setListaDeLlaves(List<Llave> listaDeLlaves) {
-		this.listaDeLlaves = listaDeLlaves;
-	}
 
-	
-	
-	
-	
 	
 	
 }
