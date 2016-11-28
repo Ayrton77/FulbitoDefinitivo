@@ -88,5 +88,40 @@ public class PartidoServiceImpl implements PartidoService{
 	public void eliminarEquipoPerdedor(Long idEquipoPerdedor) {
 		partidoDao.eliminarEquipoPerdedor(idEquipoPerdedor);
 	}
+
+	@Override
+	public void agregaGolJugador(Long idJugador) {
+		partidoDao.agregaGolJugador(idJugador);
+		
+	}
+
+	@Override
+	public void quitarGolJugador(Long idJugador) {
+		partidoDao.quitarGolJugador(idJugador);
+	}
+
+	@Override
+	public void agregaAmarillaJugador(Long idJugador) {
+		partidoDao.agregaAmarillaJugador(idJugador);
+		
+	}
+
+	@Override
+	public void quitarAmarillaJugador(Long idJugador) {
+		partidoDao.quitarAmarillaJugador(idJugador);
+		
+	}
+
+	@Override
+	public void agregaRojaJugador(Long idJugador) {
+		partidoDao.agregaRojaJugador(idJugador);
+		
+	}
+
+	@Override
+	public void quitarRojaJugador(Long idJugador) {
+		partidoDao.quitarRojaJugador(idJugador);
+		
+	}
 }
 

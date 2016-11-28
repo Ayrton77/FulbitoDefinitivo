@@ -40,6 +40,11 @@ public class Torneo {
 	@OneToMany (mappedBy="torneoFecha", cascade=CascadeType.ALL)
     private List <Fecha> listaDeFechas = new ArrayList <> ();
 	//bdd con equipo
+	//bdd con jugador
+	@Column
+	@OneToMany (mappedBy="torneoJugador", cascade=CascadeType.ALL)
+    private List <Jugador> listaDeJugadores = new ArrayList <> ();
+	
 		
 	//contructor 
 	public Torneo()
@@ -87,6 +92,14 @@ public class Torneo {
 
 	public void setListaDeFechas(List<Fecha> listaDeFechas) {
 		this.listaDeFechas = listaDeFechas;
+	}
+
+	public List<Jugador> getListaDeJugadores() {
+		return listaDeJugadores;
+	}
+
+	public void setListaDeJugadores(List<Jugador> listaDeJugadores) {
+		this.listaDeJugadores = listaDeJugadores;
 	}
 
 

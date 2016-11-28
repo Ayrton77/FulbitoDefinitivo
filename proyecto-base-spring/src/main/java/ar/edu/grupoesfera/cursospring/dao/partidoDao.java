@@ -39,4 +39,14 @@ public interface PartidoDao {
 	public Equipo traerEquipoPerdedor(Long idPartido);
 	
 	public void eliminarEquipoPerdedor(Long idEquipoPerdedor);
+	
+	//--------Goles y tarjetas-------////
+	//--------Goles y tarjetas-------////
+		public void agregaGolJugador(Long idJugador);
+		public void quitarGolJugador(Long idJugador);
+		public void agregaAmarillaJugador(Long idJugador);
+		public void quitarAmarillaJugador (Long idJugador);
+		public void agregaRojaJugador(Long idJugador);
+		public void quitarRojaJugador(Long idJugador);
+		public List<Jugador> traerGoleadores(Long idTorneo);
 }

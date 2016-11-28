@@ -81,7 +81,7 @@ public class PartidoDaoImpl extends SpringTest implements PartidoDao {
 	
 	Long idEquipo2=idEquipo;
 	final List<Jugador> listaDeJug=getSession().createCriteria(Jugador.class).
-			add(Restrictions.eq("equipo",getSession().get(Torneo.class, idEquipo2)
+			add(Restrictions.eq("equipo",getSession().get(Equipo.class, idEquipo2)
 					)).list();
 	return listaDeJug;
 	}
@@ -166,4 +166,68 @@ public class PartidoDaoImpl extends SpringTest implements PartidoDao {
 			getSession().delete(getSession().get(Equipo.class, idEquipoPerdedor));
 			
 		}
+		///-------goles y tarjetas ----//
+		@Override
+		public void agregaGolJugador(Long idJugador) {
+			getSession().get(Jugador.class,idJugador).setGoles(
+					getSession().get(Jugador.class,idJugador).getGoles()+1
+					);
+			
+			
+		}
+		@Override
+		public void quitarGolJugador(Long idJugador) {
+			if(getSession().get(Jugador.class,idJugador).getGoles()!=0)
+			{
+				getSession().get(Jugador.class,idJugador).setGoles(
+						getSession().get(Jugador.class,idJugador).getGoles()-1
+						);
+				
+			}
+			
+		}
+		@Override
+		public void agregaAmarillaJugador(Long idJugador) {
+			getSession().get(Jugador.class,idJugador).setTarjetasAmarrillas(
+					getSession().get(Jugador.class,idJugador).getTarjetasAmarrillas()+1
+					);
+			
+			
+		}
+		@Override
+		public void quitarAmarillaJugador(Long idJugador) {
+			if(getSession().get(Jugador.class,idJugador).getTarjetasAmarrillas()!=0)
+			{
+				getSession().get(Jugador.class,idJugador).setTarjetasAmarrillas(
+						getSession().get(Jugador.class,idJugador).getTarjetasAmarrillas()-1
+						);
+				
+			}
+		}
+		@Override
+		public void agregaRojaJugador(Long idJugador) {
+			getSession().get(Jugador.class,idJugador).setTarjetasRojas(
+					getSession().get(Jugador.class,idJugador).getTarjetasRojas()+1
+					);
+			
+		}
+		@Override
+		public void quitarRojaJugador(Long idJugador) {
+			if(getSession().get(Jugador.class,idJugador).getTarjetasRojas()!=0)
+			{
+				getSession().get(Jugador.class,idJugador).setTarjetasRojas(
+						getSession().get(Jugador.class,idJugador).getTarjetasRojas()-1
+						);
+				
+			}			
+		}
+		@Override
+		public List<Jugador> traerGoleadores(Long idTorneo) {
+			final List<Jugador> listaDeJug=getSession().createCriteria(Jugador.class).
+					add(Restrictions.eq("torneoJugador",getSession().get(Torneo.class, idTorneo)
+							)).list();
+			return listaDeJug;
+			
+		}
+		
 }

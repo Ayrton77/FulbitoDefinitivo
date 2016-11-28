@@ -14,11 +14,16 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.grupoesfera.cursospring.dao.SpringTest;
 import ar.edu.grupoesfera.cursospring.modelo.Equipo;
 import ar.edu.grupoesfera.cursospring.modelo.Fecha;
+import ar.edu.grupoesfera.cursospring.modelo.Jugador;
 import ar.edu.grupoesfera.cursospring.modelo.Partido;
 import ar.edu.grupoesfera.cursospring.modelo.Torneo;
+import ar.edu.grupoesfera.cursospring.modelo.UsuarioLoguiado;
 import ar.edu.grupoesfera.cursospring.servicios.ABMEquipoService;
 import ar.edu.grupoesfera.cursospring.servicios.ABMJugadorServise;
+import ar.edu.grupoesfera.cursospring.servicios.ABMTorneoService;
+import ar.edu.grupoesfera.cursospring.servicios.FechaService;
 import ar.edu.grupoesfera.cursospring.servicios.PartidoService;
+import ar.edu.grupoesfera.cursospring.servicios.RegistroLoginService;
 
 @RestController
 @Transactional
@@ -27,9 +32,19 @@ public class PartidoControlador extends SpringTest {
 	@Inject
 	private PartidoService partidoService;
 	
-	@Inject ABMEquipoService abme;
+	@Inject 
+	private RegistroLoginService rg ;
+	@Inject 
+	private ABMTorneoService abmt ;
 	
-	@Inject ABMJugadorServise abmj;
+	@Inject 
+	private ABMEquipoService abme ;
+	@Inject 
+	private ABMJugadorServise abmj ;
+	
+	@Inject
+	private FechaService fs;
+	
 	
 	@RequestMapping("pruebaPartido")
 	public ModelAndView partido()
@@ -123,12 +138,28 @@ public class PartidoControlador extends SpringTest {
 			@PathVariable("idEquipo2")Long idEquipo2,
 			@PathVariable ("idTorneo") Long idTorneo
 
-			)
+			) throws Exception
 	{
+		
+		//--quitar
+		
+		
+		
+		rg.crearUsuario("a", "a", "a");
+		abmt.crearUnTorneo("t1", getSession().get(UsuarioLoguiado.class, 1l));
+		abme.crearUnEquipo("e1", getSession().get(Torneo.class, 1l));
+		abme.crearUnEquipo("e2", getSession().get(Torneo.class, 1l));
+		abmj.agregarJugador("j1", getSession().get(Equipo.class, 1l));
+		abmj.agregarJugador("j2", getSession().get(Equipo.class, 2l));
+		abmj.agregarJugador("j3", getSession().get(Equipo.class, 2l));
+		fs.crearFecha(getSession().get(Torneo.class, 1l));
+		partidoService.crearPartido(getSession().get(Fecha.class, 1l));
+		partidoService.agreagarEquiposAlPatido(1l, 2l, 1l);
+		//--
 		ModelMap modeloPartido=new ModelMap();
 		modeloPartido.put("idTorneo",idTorneo);
-		modeloPartido.put("listaJugadoresEquipo1", partidoService.listaDeJugadoresXequipo(1l));
-		modeloPartido.put("listaJugadoresEquipo2", partidoService.listaDeJugadoresXequipo(2l));
+		modeloPartido.put("listaJugadoresEquipo1", partidoService.listaDeJugadoresXequipo(idEquipo1));
+		modeloPartido.put("listaJugadoresEquipo2", partidoService.listaDeJugadoresXequipo(idEquipo2));
 		modeloPartido.put("idEquipo1",idEquipo1);
 		modeloPartido.put("idEquipo2",idEquipo2);
 		return new ModelAndView("jugarListaDeEquipos",modeloPartido);
@@ -146,9 +177,15 @@ public class PartidoControlador extends SpringTest {
 	{
 		ModelMap modeloPartido=new ModelMap();
 		modeloPartido.put("idTorneo",idTorneo);
-		modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(1l));//cambiar
-		modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(2l));//cambiar
+		modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(idEquipo1));//cambiar
+		modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(idEquipo2));//cambiar
 		modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
+		//goles
+		
+		modeloPartido.put("listaDeJugadores1",partidoService.listaDeJugadoresXequipo(idEquipo1));
+		modeloPartido.put("listaDeJugadores2",partidoService.listaDeJugadoresXequipo(idEquipo2));
+		modeloPartido.put("jugador", new Jugador());
+		//-
 		modeloPartido.put("idEquipo1",idEquipo1);
 		modeloPartido.put("idEquipo2",idEquipo2);
 		modeloPartido.put("idPartido",idPartido);
@@ -157,21 +194,29 @@ public class PartidoControlador extends SpringTest {
 
 	}
 	//agregar gol
-	@RequestMapping ("Torneo/{idTorneo}/partido/{idPartido}/{idEquipo1}/{idEquipo2}/equipo/{numeroEquipo}/agregarGol")
+	@RequestMapping (value="Torneo/{idTorneo}/partido/{idPartido}/{idEquipo1}/{idEquipo2}/equipo/{numeroEquipo}/agregarGol" ,method=RequestMethod.POST)
 	public ModelAndView agregarGol(
 			@PathVariable ("idPartido") Long idPartido,
 			@PathVariable("idEquipo1")Long idEquipo1,
 			@PathVariable("idEquipo2")Long idEquipo2,
 			@PathVariable ("numeroEquipo") Integer numeroEquipo,
-			@PathVariable ("idTorneo") Long idTorneo
+			@PathVariable ("idTorneo") Long idTorneo,
+			@RequestParam ("Idjugador") Long Idjugador
 			)
 	{
 		ModelMap modeloPartido=new ModelMap();
 		
 		partidoService.agregarGol(numeroEquipo, idPartido);
-			modeloPartido.put("idTorneo",idTorneo);
-			modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(1l));//cambiar
-			modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(2l));//cambiar
+		partidoService.agregaGolJugador(Idjugador);
+			//goles
+		
+				modeloPartido.put("listaDeJugadores1",partidoService.listaDeJugadoresXequipo(idEquipo1));
+				modeloPartido.put("listaDeJugadores2",partidoService.listaDeJugadoresXequipo(idEquipo2));
+				modeloPartido.put("jugador", new Jugador());
+				//-	
+		modeloPartido.put("idTorneo",idTorneo);
+			modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(idEquipo1));//cambiar
+			modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(idEquipo2));//cambiar
 			modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
 			modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
 			modeloPartido.put("idEquipo1",idEquipo1);
@@ -189,15 +234,23 @@ public class PartidoControlador extends SpringTest {
 			@PathVariable("idEquipo1")Long idEquipo1,
 			@PathVariable("idEquipo2")Long idEquipo2,
 			@PathVariable ("numeroEquipo") Integer numeroEquipo,
-			@PathVariable ("idTorneo") Long idTorneo
+			@PathVariable ("idTorneo") Long idTorneo,
+			@RequestParam ("Idjugador") Long Idjugador
 			)
 	{
 		ModelMap modeloPartido=new ModelMap();
 		
 		partidoService.quitarGol(numeroEquipo, idPartido);
+		partidoService.quitarGolJugador(Idjugador);
+		//goles
+	
+			modeloPartido.put("listaDeJugadores1",partidoService.listaDeJugadoresXequipo(idEquipo1));
+			modeloPartido.put("listaDeJugadores2",partidoService.listaDeJugadoresXequipo(idEquipo2));
+			modeloPartido.put("jugador", new Jugador());
+			//-	
 		modeloPartido.put("idTorneo",idTorneo);
-			modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(1l));//cambiar
-			modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(2l));//cambiar
+			modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(idEquipo1));//cambiar
+			modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(idEquipo2));//cambiar
 			modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
 			modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
 			modeloPartido.put("idEquipo1",idEquipo1);
@@ -207,6 +260,143 @@ public class PartidoControlador extends SpringTest {
 
 
 	}
+	//agregar amarilla
+		@RequestMapping (value="Torneo/{idTorneo}/partido/{idPartido}/{idEquipo1}/{idEquipo2}/equipo/{numeroEquipo}/agregarAmarrilla" ,method=RequestMethod.POST)
+		public ModelAndView agregarAmarilla(
+				@PathVariable ("idPartido") Long idPartido,
+				@PathVariable("idEquipo1")Long idEquipo1,
+				@PathVariable("idEquipo2")Long idEquipo2,
+				@PathVariable ("numeroEquipo") Integer numeroEquipo,
+				@PathVariable ("idTorneo") Long idTorneo,
+				@RequestParam ("Idjugador") Long Idjugador
+				)
+		{
+			ModelMap modeloPartido=new ModelMap();
+			
+			partidoService.agregarGol(numeroEquipo, idPartido);
+			partidoService.agregaAmarillaJugador(Idjugador);
+				//goles
+			
+					modeloPartido.put("listaDeJugadores1",partidoService.listaDeJugadoresXequipo(idEquipo1));
+					modeloPartido.put("listaDeJugadores2",partidoService.listaDeJugadoresXequipo(idEquipo2));
+					modeloPartido.put("jugador", new Jugador());
+					//-	
+			modeloPartido.put("idTorneo",idTorneo);
+				modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(idEquipo1));//cambiar
+				modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(idEquipo2));//cambiar
+				modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
+				modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
+				modeloPartido.put("idEquipo1",idEquipo1);
+				modeloPartido.put("idEquipo2",idEquipo2);
+				modeloPartido.put("idPartido",idPartido);
+			return new ModelAndView("jugarComandos",modeloPartido);
+
+
+		}
+		
+		//quitar amatilla
+		@RequestMapping ("Torneo/{idTorneo}/partido/{idPartido}/{idEquipo1}/{idEquipo2}/equipo/{numeroEquipo}/quitarAmarrilla")
+		public ModelAndView quitaAmatilla(
+				@PathVariable ("idPartido") Long idPartido,
+				@PathVariable("idEquipo1")Long idEquipo1,
+				@PathVariable("idEquipo2")Long idEquipo2,
+				@PathVariable ("numeroEquipo") Integer numeroEquipo,
+				@PathVariable ("idTorneo") Long idTorneo,
+				@RequestParam ("Idjugador") Long Idjugador
+				)
+		{
+			ModelMap modeloPartido=new ModelMap();
+			
+			partidoService.quitarGol(numeroEquipo, idPartido);
+			partidoService.quitarAmarillaJugador(Idjugador);
+			//goles
+		
+				modeloPartido.put("listaDeJugadores1",partidoService.listaDeJugadoresXequipo(idEquipo1));
+				modeloPartido.put("listaDeJugadores2",partidoService.listaDeJugadoresXequipo(idEquipo2));
+				modeloPartido.put("jugador", new Jugador());
+				//-	
+			modeloPartido.put("idTorneo",idTorneo);
+				modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(idEquipo1));//cambiar
+				modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(idEquipo2));//cambiar
+				modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
+				modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
+				modeloPartido.put("idEquipo1",idEquipo1);
+				modeloPartido.put("idEquipo2",idEquipo2);
+				modeloPartido.put("idPartido",idPartido);
+			return new ModelAndView("jugarComandos",modeloPartido);
+
+
+		}
+		
+		//agregarroja
+				@RequestMapping (value="Torneo/{idTorneo}/partido/{idPartido}/{idEquipo1}/{idEquipo2}/equipo/{numeroEquipo}/agregarRoja" ,method=RequestMethod.POST)
+				public ModelAndView agregarRoja(
+						@PathVariable ("idPartido") Long idPartido,
+						@PathVariable("idEquipo1")Long idEquipo1,
+						@PathVariable("idEquipo2")Long idEquipo2,
+						@PathVariable ("numeroEquipo") Integer numeroEquipo,
+						@PathVariable ("idTorneo") Long idTorneo,
+						@RequestParam ("Idjugador") Long Idjugador
+						)
+				{
+					ModelMap modeloPartido=new ModelMap();
+					
+					partidoService.agregarGol(numeroEquipo, idPartido);
+					partidoService.agregaRojaJugador(Idjugador);
+						//goles
+					
+							modeloPartido.put("listaDeJugadores1",partidoService.listaDeJugadoresXequipo(idEquipo1));
+							modeloPartido.put("listaDeJugadores2",partidoService.listaDeJugadoresXequipo(idEquipo2));
+							modeloPartido.put("jugador", new Jugador());
+							//-	
+					modeloPartido.put("idTorneo",idTorneo);
+						modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(idEquipo1));//cambiar
+						modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(idEquipo2));//cambiar
+						modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
+						modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
+						modeloPartido.put("idEquipo1",idEquipo1);
+						modeloPartido.put("idEquipo2",idEquipo2);
+						modeloPartido.put("idPartido",idPartido);
+					return new ModelAndView("jugarComandos",modeloPartido);
+
+
+				}
+				
+				//quitar roja
+				@RequestMapping ("Torneo/{idTorneo}/partido/{idPartido}/{idEquipo1}/{idEquipo2}/equipo/{numeroEquipo}/quitarRoja")
+				public ModelAndView quitarRoja(
+						@PathVariable ("idPartido") Long idPartido,
+						@PathVariable("idEquipo1")Long idEquipo1,
+						@PathVariable("idEquipo2")Long idEquipo2,
+						@PathVariable ("numeroEquipo") Integer numeroEquipo,
+						@PathVariable ("idTorneo") Long idTorneo,
+						@RequestParam ("Idjugador") Long Idjugador
+						)
+				{
+					ModelMap modeloPartido=new ModelMap();
+					
+					partidoService.quitarGol(numeroEquipo, idPartido);
+					partidoService.quitarRojaJugador(Idjugador);
+					//goles
+				
+						modeloPartido.put("listaDeJugadores1",partidoService.listaDeJugadoresXequipo(idEquipo1));
+						modeloPartido.put("listaDeJugadores2",partidoService.listaDeJugadoresXequipo(idEquipo2));
+						modeloPartido.put("jugador", new Jugador());
+						//-	
+					modeloPartido.put("idTorneo",idTorneo);
+						modeloPartido.put("equipo1", partidoService.traerUnEquipoPorIdS(idEquipo1));//cambiar
+						modeloPartido.put("equipo2", partidoService.traerUnEquipoPorIdS(idEquipo2));//cambiar
+						modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
+						modeloPartido.put("partido", partidoService.buscarPartidoporIdS(idPartido));
+						modeloPartido.put("idEquipo1",idEquipo1);
+						modeloPartido.put("idEquipo2",idEquipo2);
+						modeloPartido.put("idPartido",idPartido);
+					return new ModelAndView("jugarComandos",modeloPartido);
+
+
+				}
+		
+	//tarjetas
 	@RequestMapping ("Torneo/{idTorneo}/partido/{idPartido}/{idEquipo1}/{idEquipo2}/resultado")
 	public ModelAndView resultado(
 			@PathVariable ("idPartido") Long idPartido,
