@@ -8,18 +8,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mod Torneo Formulario</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<title>Modificar Torneo Formulario</title>
 </head>
 <body>
-	<h3>Mod Torneo formulario</h3>
-	<br>
-	<form:form action="/proyecto-base-spring/usuario/${idUsuario}/torneo/${idTorneo}/modificarTorneo2" modelAttribute="torneo" method="post">
-		
-		nombre
-		<form:input path="nombreTorneo"/>
-		
-		<input type="submit" value="moficar torneo">
-	</form:form>
-	<input type="button" onclick="history.back()" value="volver atras">
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h4 class="text-center">Modificar Torneo</h4>
+			<form:form action="/proyecto-base-spring/usuario/${idUsuario}/torneo/${idTorneo}/modificarTorneo2" modelAttribute="torneo" method="post">
+			<div class="form-group">
+				<label for="Nombre">Nombre del torneo</label>
+				<form:input class="form-control" path="nombreTorneo"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-success" value="Modificar torneo">
+			</div>
+			</form:form>
+			<div class="form-group">
+				<input class="btn btn-danger" type="button" onclick="history.back()" value="Volver atras">
+			</div>
+		</div>
+	</div>
 </body>
 </html>

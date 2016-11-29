@@ -7,11 +7,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<title>Resultado del partido</title>
 </head>
 <body>
-	gano:${equipoGanador.getNombreEquipo()}
-	perdio:${equipoPerdedor.getNombreEquipo()}
-	<a href="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/eliminarPerdedor">siguien</a>
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h3>Ganó: ${equipoGanador.getNombreEquipo()} </h3><br>
+			<h3>Perdió:${equipoPerdedor.getNombreEquipo()} </h3><br>
+			<a class="btn btn-success" href="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/eliminarPerdedor">Siguiente</a>
+		</div>
+	</div>
 </body>
 </html>

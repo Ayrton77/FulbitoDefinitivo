@@ -24,7 +24,7 @@
 			<input type="submit" class="btn btn-warning" value="Agregar equipo">
 		</div>
 		</form:form>
-		<input type="button" class="btn btn-success" onclick="history.back()" value="volver atras">
+		<input type="button" class="btn btn-danger" onclick="history.back()" value="Volver atras">
 	</div>
 </div>
 </body>

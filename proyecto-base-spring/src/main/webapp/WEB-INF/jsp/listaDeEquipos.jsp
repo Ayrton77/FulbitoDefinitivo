@@ -8,30 +8,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ListaDeEquipos</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<title>Lista De Equipos</title>
 </head>
 <body>
-	Lista de Equipos
-	<br>
-	
-	<table>
-		
-			<c:forEach var="list" items="${listaDeEquipos}">
-	
-				<tr>
-					<td>${list.getNombreEquipo()}</td>
-					
-					<td><a href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/ver"> Ver</a></td>
-					<td><a href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/eliminarEquipo">Eliminar Equipo</a></td>
-					<td><a href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/modificarEquipo1">Modificar Equipo</a></td>
-				</tr>
-	
-			</c:forEach>
-	
-	</table>
-	
-		<a href="/proyecto-base-spring/torneo/${idTorneo}/agregarEquipo1">Agregar Equipo</a>
-<input type="button" onclick="history.back()" value="volver atras">
-	
+<div class="container">
+	<div class="col-md-6 col-md-offset-3">
+			<table class=" table table-striped">
+				<thead>
+					<tr>
+						<th>Lista de equipos</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="list" items="${listaDeEquipos}">
+					<tr>
+						<td>${list.getNombreEquipo()}</td>
+						<td><a href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/ver"> Ver</a></td>
+						<td><a href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/eliminarEquipo">Eliminar Equipo</a></td>
+						<td><a href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/modificarEquipo1">Modificar Equipo</a></td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<br>
+			<a class="btn btn-success" href="/proyecto-base-spring/torneo/${idTorneo}/agregarEquipo1">Agregar Equipo</a>
+			<input type="button" class="btn btn-danger" onclick="history.back()" value="Volver atras">
+	</div>
+</div>
 </body>
 </html>

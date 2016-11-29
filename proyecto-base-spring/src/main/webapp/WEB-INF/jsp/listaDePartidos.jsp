@@ -8,23 +8,36 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ListaDeFechas</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<title>Lista de partidos</title>
 </head>
 <body>
-<h3>lista de paridos de la fecha ${idFecha}</h3>
-
-<br>
-<c:forEach var="list" items="${listaDePartidos}">
-	<br>
-	Partido n: 
-	${list.getIdPartido()}
-	<a href="/proyecto-base-spring/Torneo/${idTorneo }/fecha/${idFecha}/partido/${list.getIdPartido()}/listaDeEquipo">agregar equipo al partido</a>
-	
-	
-	
-</c:forEach>
-	<br>
-	<a href="/proyecto-base-spring/Torneo/${idTorneo}/fecha/${idFecha}/agregarPartido">agregar PARTIDO</a>
-<input type="button" onclick="history.back()" value="volver atras">
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h4 class="text-center">Lista de Jugadores</h4>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Lista de paridos de la fecha ${idFecha}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<c:forEach var="list" items="${listaDePartidos}">
+						<td>
+							<a href="/proyecto-base-spring/Torneo/${idTorneo }/fecha/${idFecha}/partido/${list.getIdPartido()}/listaDeEquipo">Agregar equipo al partido</a>
+						</td>
+						<td>
+							Partido n: ${list.getIdPartido()}
+						</td>
+						</c:forEach>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<a class="btn btn-success" href="/proyecto-base-spring/Torneo/${idTorneo}/fecha/${idFecha}/agregarPartido">agregar PARTIDO</a>
+			<input class="btn btn-danger" type="button" onclick="history.back()" value="Volver atras">
+		</div>
+	</div>
 </body>
 </html>

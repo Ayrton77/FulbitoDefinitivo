@@ -8,23 +8,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>menuTorneo</title>
+<title>Menu torneo</title>
 </head>
 <body>
-	Torneo: ${nombreTorneo}
-	<br>
-	
-	
-	<a href="/proyecto-base-spring/torneoBuscado/${list.getNombreTorneo()}/${list.getIdTorneo()}/menu">Ver Progreso Torneo</a>
-		<br>
-	<a href="/proyecto-base-spring/torneoBuscado/${list.getNombreTorneo()}/${list.getIdTorneo()}/menu">Ver Goleadores Torneo</a>
-		<br>
-	<a href="/proyecto-base-spring/torneoBuscado/${list.getNombreTorneo()}/${list.getIdTorneo()}/menu">volver</a>
-						
-	
-	
-
-
-	
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h4 class="text-center">Torneo: ${nombreTorneo}</h4>
+			<div class="form-group">
+				<a class="btn btn-success" href="/proyecto-base-spring/torneoBuscado/${list.getNombreTorneo()}/${list.getIdTorneo()}/menu">Ver Progreso Torneo</a>
+			</div>
+			<div class="form-group">
+				<a class="btn btn-primary" href="/proyecto-base-spring/torneoBuscado/${list.getNombreTorneo()}/${list.getIdTorneo()}/menu">Ver Goleadores Torneo</a>
+			</div>
+			<div class="form-group">
+				<a class="btn btn-danger" href="/proyecto-base-spring/torneoBuscado/${list.getNombreTorneo()}/${list.getIdTorneo()}/menu">Volver</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

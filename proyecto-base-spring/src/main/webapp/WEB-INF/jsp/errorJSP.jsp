@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <title>Mensaje de error</title>
 </head>
 <body>
-	<h5>Error</h5>
-	<br>
-	<h6>Descripcion</h6>
-	<br>
-	${mensajeError}
+<div class="col-md-6 col-md-offset-3">
+	<div class="alert alert-danger">
+ 	 <strong>Error!</strong>${mensajeError}
+	</div>
+</div>
 </body>
 </html>

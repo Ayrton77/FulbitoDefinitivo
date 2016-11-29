@@ -8,27 +8,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <title>ListaDeEquiposEnPartido</title>
 </head>
 <body>
-	Lista de Equipos en partido
-	<br>
-	
-	<table>
-		
-			<c:forEach var="list" items="${listaDeEquipos}">
-	
-				<tr>
-					<td>${list.getNombreEquipo()}</td>
-				</tr>
-	
-			</c:forEach>
-	
-	</table>
-	
-		<a href="/proyecto-base-spring/Torneo/${idTorneo} /partido/${idPartido}/agregarEquipoAPartido1">Agregar Equipo a partido</a>
-		<a href="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/jugar">Jugar</a>
-<input type="button" onclick="history.back()" value="volver atras">
-	
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h4 class="text-center">Lista de Equipos en partido</h4>
+			<table class="table table-striped">
+				<c:forEach var="list" items="${listaDeEquipos}">
+					<tr>
+						<td>${list.getNombreEquipo()}</td>
+					</tr>
+				</c:forEach>
+			</table>
+			<br>
+			<a class="btn btn-success" href="/proyecto-base-spring/Torneo/${idTorneo} /partido/${idPartido}/agregarEquipoAPartido1">Agregar Equipo a partido</a>
+			<a class="btn btn-primary" href="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/jugar">Jugar</a>
+			<input class="btn btn-danger" type="button" onclick="history.back()" value="Volver atras">
+		</div>
+	</div>
 </body>
 </html>

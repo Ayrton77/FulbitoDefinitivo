@@ -8,23 +8,33 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ListaDeFechas</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<title>Lista De Fechas</title>
 </head>
 <body>
-<h3>ListaDeFechas</h3>
-
-<br>
-<c:forEach var="list" items="${listaDeFechas}">
-	<br>
-	fecha n: ${list.getIdFecha()}
-	
-	<a href="/proyecto-base-spring/Torneo/${idTorneo}/fecha/${list.getIdFecha()}/ver">ver fecha</a>
-	
-	
-</c:forEach>
-	<br>
-	<a href="/proyecto-base-spring/Torneo/${idTorneo}/agregarFecha">AgregarFecha</a>
-<input type="button" onclick="history.back()" value="volver atras">
-
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Lista de Fechas</th>
+					</tr>
+				</thead>
+				<tbody>
+				<c:forEach var="list" items="${listaDeFechas}">
+					<tr>
+						<td>Fecha n: ${list.getIdFecha()}</td>
+					</tr>
+					<tr>
+						<td><a class="btn btn-primary" href="/proyecto-base-spring/Torneo/${idTorneo}/fecha/${list.getIdFecha()}/ver">Ver fecha</a></td>
+					</tr>
+				</c:forEach>
+				</tbody>
+			</table>
+			<br>
+			<a  class="btn btn-success" href="/proyecto-base-spring/Torneo/${idTorneo}/agregarFecha">Agregar Fecha</a>
+			<input class="btn btn-danger" type="button" onclick="history.back()" value="Volver atras">
+		</div>
+	</div>
 </body>
 </html>

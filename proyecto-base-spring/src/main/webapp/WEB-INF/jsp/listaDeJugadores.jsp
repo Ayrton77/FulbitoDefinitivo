@@ -8,28 +8,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>ListaDeJugadores</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<title>Lista de jugadores</title>
 </head>
 <body>
-	Lista de Jugadores
-	<br>
-	
-	<table>
-		
-			<c:forEach var="list" items="${listaDeJugadores}">
-	
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<h4 class="text-center">Lista de Jugadores</h4>
+			<br>
+			<table class="table table-striped">
 				<tr>
+				<c:forEach var="list" items="${listaDeJugadores}">
 					<td>${list.getNombreJugador()}</td>
 					<td><a href="/proyecto-base-spring/${idEquipo}/${list.getIdjugador()}/eliminarJugador">Eliminar Jugador</a></td>
 					<td><a href="/proyecto-base-spring/${idEquipo}/${list.getIdjugador()}/modificarJugador1">Modificar Jugador</a></td>
+				</c:forEach>
 				</tr>
-	
-			</c:forEach>
-	
-	</table>
-	
-		<a href="/proyecto-base-spring/${idEquipo}/agregarJugador1">Agregar Jugador</a>
-<input type="button" onclick="history.back()" value="volver atras">
-	
+			</table>
+			<br>
+			<a class="btn btn-success" href="/proyecto-base-spring/${idEquipo}/agregarJugador1">Agregar Jugador</a>
+			<input class="btn btn-danger" type="button" onclick="history.back()" value="Volver atras">
+		</div>
+	</div>
 </body>
 </html>

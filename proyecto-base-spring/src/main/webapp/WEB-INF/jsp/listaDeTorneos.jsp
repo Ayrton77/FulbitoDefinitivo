@@ -8,19 +8,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<title>ListaDeTorneos</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<title>Lista De Torneos</title>
 </head>
 <body>
 <div class="container">
 	
 	<div class="col-md-6 col-md-offset-3">
-		<h4>Lista de torneos</h4>
 		<table class="table table-striped">
-		
-			<c:forEach var="list" items="${listaDeTorneos}">
-	
+			<thead>
+				<tr>
+					<th>
+						Lista de torneos
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="list" items="${listaDeTorneos}">
 				<tr>
 					<td>${list.getNombreTorneo()}</td>
 					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/listaDefechas"> fechas</a></td>
@@ -28,12 +32,11 @@
 					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/eliminarTorneo">Eliminar Torneo</a></td>
 					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/modificarTorneo1">Modificar Torneo</a></td>
 				</tr>
-	
 			</c:forEach>
-	
+			</tbody>
 	</table>
-	
-	<input class="btn-btn-warning" type="button" onclick="history.back()" value="volver atras">
+	<br>
+	<input class="btn-btn-warning" type="button" onclick="history.back()" value="Volver atras">
 	<a class="btn btn-success" href="/proyecto-base-spring/torneo/${idUsuario}/agregarTorneo1">Agregar Torneo</a>
 	</div>
 </div>
