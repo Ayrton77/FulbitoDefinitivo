@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
 <title>Menu torneo</title>
 </head>
 <body>
@@ -18,11 +19,10 @@
 				<a class="btn btn-success" href="/proyecto-base-spring/torneoBuscado/${list.getNombreTorneo()}/${list.getIdTorneo()}/menu">Ver Progreso Torneo</a>
 			</div>
 			<div class="form-group">
-				<a class="btn btn-primary" href="/proyecto-base-spring/torneoBuscado/${list.getNombreTorneo()}/${list.getIdTorneo()}/menu">Ver Goleadores Torneo</a>
-			</div>
-			<div class="form-group">
 				<a class="btn btn-danger" href="/proyecto-base-spring/torneoBuscado/${list.getNombreTorneo()}/${list.getIdTorneo()}/menu">Volver</a>
 			</div>
+			<td><a href="/proyecto-base-spring/Torneo/${idTorneo }/tablaDeGoleadores">Tabla De Goleadores</a></td>
+			
 		</div>
 	</div>
 </body>

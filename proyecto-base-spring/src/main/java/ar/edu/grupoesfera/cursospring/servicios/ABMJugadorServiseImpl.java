@@ -24,8 +24,8 @@ public class ABMJugadorServiseImpl  implements ABMJugadorServise{
 	//agrego jug
 	@Override
 	
-	public void agregarJugador(String nombreDeJugador,Equipo equipoJugador ) {
-		ABMjugadorDao.guardarUnJugadorEnLaBDD(nombreDeJugador, equipoJugador);
+	public void agregarJugador(String nombreDeJugador,Equipo equipoJugador,Long idTorneo ) {
+		ABMjugadorDao.guardarUnJugadorEnLaBDD(nombreDeJugador, equipoJugador,idTorneo);
 		
 	}
 	//elimino jugador

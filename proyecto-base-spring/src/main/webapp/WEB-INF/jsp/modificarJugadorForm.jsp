@@ -8,17 +8,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<title>Modificar Jugador 1</title>
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
+ <title>Modificar Jugador 1</title>
 </head>
 <body>
 	<div class="container">
 		<div class="col-md-6 col-md-offset-3">
-			<h4 class="text-center">Modificar Jugador 1</h4>
-			<form:form modelAttribute="jugador" action="/proyecto-base-spring/${idEquipo}/${idJugador}/modificarJugador2" method="post">
+			<h3 class="text-center">Modificar Jugador 1</h3>
+			<form:form modelAttribute="jugador" action="/proyecto-base-spring/torneo/${idTorneo}/${idEquipo}/${idJugador}/modificarJugador2" method="post">
 			<div class="form-group">
-				<label for="Nombre">Nombre del jugador</label>
-				<form:input class="form-control"path="nombreJugador"/>
+				<label for="Nombre">Nombre del Jugador</label>
+				<form:input class="form-control" path="nombreJugador"/>
 			</div>
 			<div class="form-group">
 				<input class="btn btn-success" type="submit" value="Modificar Jugador">

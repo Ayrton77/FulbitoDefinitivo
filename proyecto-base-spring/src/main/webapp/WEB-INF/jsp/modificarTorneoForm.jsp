@@ -8,8 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<title>Modificar Torneo Formulario</title>
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
+ <title>Modificar Torneo Formulario</title>
 </head>
 <body>
 	<div class="container">

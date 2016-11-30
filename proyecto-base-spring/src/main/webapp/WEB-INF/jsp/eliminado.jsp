@@ -7,11 +7,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
 <title>Perdedor</title>
 </head>
 <body>
-	Se elimino al Perdedor
-	<a href="/proyecto-base-spring/Torneo/${idTorneo}/listaDefechas">siguien</a>
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="alert alert-danger">
+	 			 <strong>Se elimino al Perdedor!</strong> <a class="btn btn-success" href="/proyecto-base-spring/Torneo/${idTorneo}/listaDefechas">Siguiente</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

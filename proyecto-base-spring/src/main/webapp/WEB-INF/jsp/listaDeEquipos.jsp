@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
 <title>Lista De Equipos</title>
 </head>
 <body>
@@ -24,9 +24,9 @@
 					<c:forEach var="list" items="${listaDeEquipos}">
 					<tr>
 						<td>${list.getNombreEquipo()}</td>
-						<td><a href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/ver"> Ver</a></td>
-						<td><a href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/eliminarEquipo">Eliminar Equipo</a></td>
-						<td><a href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/modificarEquipo1">Modificar Equipo</a></td>
+						<td><a class="btn btn-primary" href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/ver"> Ver</a></td>
+						<td><a class="btn btn-primary" href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/eliminarEquipo">Eliminar Equipo</a></td>
+						<td><a class="btn btn-primary" href="/proyecto-base-spring/torneo/${idTorneo}/equipo/${list.getIdEquipo()}/modificarEquipo1">Modificar Equipo</a></td>
 					</tr>
 					</c:forEach>
 				</tbody>

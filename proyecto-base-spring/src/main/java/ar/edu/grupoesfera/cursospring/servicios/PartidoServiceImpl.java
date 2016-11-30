@@ -123,5 +123,9 @@ public class PartidoServiceImpl implements PartidoService{
 		partidoDao.quitarRojaJugador(idJugador);
 		
 	}
+	@Override
+	public List<Jugador> traerGoleadores(Long idTorneo) {
+		return partidoDao.traerGoleadores(idTorneo);
+	}
 }
 

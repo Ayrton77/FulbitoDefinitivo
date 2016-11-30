@@ -8,14 +8,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
 <title>Agregar Jugador Formulario</title>
 </head>
 <body>
 <div class="container">
 	<div class="col-md-6 col-md-offset-3">
 		<h3>Agregar Jugador formulario</h3>
-		<form:form action="/proyecto-base-spring/${idEquipo}/agregarJugador2" modelAttribute="jugador" method="post">
+		<form:form action="/proyecto-base-spring/torneo/${idTorneo}/${idEquipo}/agregarJugador2" modelAttribute="jugador" method="post">
 		<div class="form-group">
 			<label for="Nombre">Nombre del jugador</label>
 			<form:input class="form-control" path="nombreJugador"/>

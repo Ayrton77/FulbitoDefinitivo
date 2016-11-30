@@ -8,8 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<title>Lista De Torneos</title>
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
+ <title>Lista De Torneos</title>
 </head>
 <body>
 	<div class="container">
@@ -24,6 +24,7 @@
 					<c:forEach var="list" items="${listaDeTorneos}">
 					<tr>
 						<td><a href="/proyecto-base-spring/torneoBuscado/${list.getIdTorneo()}/menu">${list.getNombreTorneo()}</a></td>
+					
 					</tr>
 					</c:forEach>
 				</tbody>

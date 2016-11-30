@@ -8,12 +8,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
- <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<title>Agregar Torneo Formulario</title>
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
+ <title>Agregar Torneo Formulario</title>
+<%-- <%@include file="estilos.jsp"%> --%>
 </head>
 <body>
 <div class="container">
-	<div class="col-md-6 col-md-offset">
+	<div class="col-md-6 col-md-offset-3">
 		<h3>Agregar Torneo formulario</h3>
 		<form:form action="/proyecto-base-spring/usuario/${idUsuario}/agregarTorneo2" modelAttribute="torneo" method="post">
 		<div class="form-group">
@@ -21,7 +22,7 @@
 			<form:input  class="form-control" path="nombreTorneo"/>
 		</div>
 		<div class="form-group">
-			<input class="btn bnt-warning" type="submit" value="agregar torneo">
+			<input class="btn bnt-warning" type="submit" value="Agregar torneo">
 		</div>
 		</form:form>
 		<input type="button" class="btn btn-success" onclick="history.back()" value="Volver atras">

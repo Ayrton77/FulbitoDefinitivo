@@ -9,24 +9,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
- <title>Modificar Equipo 1</title>
+<title>Goleadores</title>
 </head>
 <body>
 	<div class="container">
 		<div class="col-md-6 col-md-offset-3">
-			<h4 class="text-center">Modificar Equipo 1</h4>
-			<form:form modelAttribute="equipo" action="/proyecto-base-spring/torneo/${idTorneo}/equipo/${idEquipo}/modificarEquipo2" method="post">
-			<div class="form-group">
-				<label for="Nombre">Nombre del equipo</label>
-				<form:input class="form-control" path="nombreEquipo"/>
-			</div>
-			<div class="form-group">
-				<input class="btn btn-success" type="submit" value="Modificar Equipo">
-			</div>
-			</form:form>
-			<div class="form-group">
-				<input class="btn btn-danger" type="button" onclick="history.back()" value="Volver atras">
-			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Tabla de goleadores</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="list" items="${listaDeGoleadores}">
+						<tr>
+							<td>${list.getNombreJugador()}-${list.getGoles()}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </body>

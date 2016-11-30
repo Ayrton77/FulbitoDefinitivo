@@ -2,6 +2,7 @@ package ar.edu.grupoesfera.cursospring.dao;
 
 import java.util.List;
 
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -225,7 +226,7 @@ public class PartidoDaoImpl extends SpringTest implements PartidoDao {
 		public List<Jugador> traerGoleadores(Long idTorneo) {
 			final List<Jugador> listaDeJug=getSession().createCriteria(Jugador.class).
 					add(Restrictions.eq("torneoJugador",getSession().get(Torneo.class, idTorneo)
-							)).list();
+							)).addOrder(Order.desc("goles")).list();
 			return listaDeJug;
 			
 		}

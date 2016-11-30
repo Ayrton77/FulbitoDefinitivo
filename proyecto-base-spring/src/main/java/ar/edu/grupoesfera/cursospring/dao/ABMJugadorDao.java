@@ -9,7 +9,7 @@ import ar.edu.grupoesfera.cursospring.modelo.Jugador;
 
 public interface ABMJugadorDao {
 	
-	public void guardarUnJugadorEnLaBDD(String nombreDeJugador,Equipo equipoJugador);
+	public void guardarUnJugadorEnLaBDD(String nombreDeJugador,Equipo equipoJugador,Long idTorneo);
 	
 	public void borrarUnJugadorDeLaBDD(Long idJugador);
 	

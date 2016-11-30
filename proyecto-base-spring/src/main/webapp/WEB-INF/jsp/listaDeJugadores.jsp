@@ -8,26 +8,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<title>Lista de jugadores</title>
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
+<title>ListaDeJugadores</title>
 </head>
 <body>
 	<div class="container">
-		<div class="col-md-6 col-md-offset-3">
-			<h4 class="text-center">Lista de Jugadores</h4>
-			<br>
+		<div class="col-md-3 col-md-offset-3">
 			<table class="table table-striped">
-				<tr>
-				<c:forEach var="list" items="${listaDeJugadores}">
-					<td>${list.getNombreJugador()}</td>
-					<td><a href="/proyecto-base-spring/${idEquipo}/${list.getIdjugador()}/eliminarJugador">Eliminar Jugador</a></td>
-					<td><a href="/proyecto-base-spring/${idEquipo}/${list.getIdjugador()}/modificarJugador1">Modificar Jugador</a></td>
-				</c:forEach>
-				</tr>
+				<thead>
+					<tr>
+						<th>Lista de Jugadores</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="list" items="${listaDeJugadores}">
+						<tr>
+							<td>${list.getNombreJugador()}</td>
+							<td><a class="btn btn-primary" href="/proyecto-base-spring/torneo/${idTorneo}/${idEquipo}/${list.getIdjugador()}/eliminarJugador">Eliminar Jugador</a></td>
+							<td><a class="btn btn-primary" href="/proyecto-base-spring/torneo/${idTorneo}/${idEquipo}/${list.getIdjugador()}/modificarJugador1">Modificar Jugador</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
 			</table>
-			<br>
-			<a class="btn btn-success" href="/proyecto-base-spring/${idEquipo}/agregarJugador1">Agregar Jugador</a>
-			<input class="btn btn-danger" type="button" onclick="history.back()" value="Volver atras">
+			<div class="form-group">
+				<a class="btn btn-success" href="/proyecto-base-spring/torneo/${idTorneo}/${idEquipo}/agregarJugador1">Agregar Jugador</a>	
+			</div>
+			<div class="form-group">
+				<input class="btn btn-danger" type="button" onclick="history.back()" value="volver atras">
+			</div>
 		</div>
 	</div>
 </body>

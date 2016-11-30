@@ -8,8 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<title>Lista De Torneos</title>
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
+ <title>Lista De Torneos</title>
 </head>
 <body>
 <div class="container">
@@ -27,16 +27,18 @@
 				<c:forEach var="list" items="${listaDeTorneos}">
 				<tr>
 					<td>${list.getNombreTorneo()}</td>
-					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/listaDefechas"> fechas</a></td>
-					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/ver"> Ver equipo</a></td>
-					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/eliminarTorneo">Eliminar Torneo</a></td>
-					<td><a href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/modificarTorneo1">Modificar Torneo</a></td>
+					<td><a class="btn btn-primary" href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/listaDefechas"> Fechas</a></td>
+					<td><a class="btn btn-primary" href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/ver"> Ver equipo</a></td>
+					<td><a class="btn btn-primary" href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/eliminarTorneo">Eliminar Torneo</a></td>
+					<td><a class="btn btn-primary" href="/proyecto-base-spring/Usuario/${idUsuario}/Torneo/${list.getIdTorneo()}/modificarTorneo1">Modificar Torneo</a></td>
+					<td><a class="btn btn-primary" href="/proyecto-base-spring/UsuarioRegistrado/${idUsuario}/Torneo/${list.getIdTorneo()}/tablaDeGoleadores">Tabla De Goleadores</a></td>
+					
 				</tr>
 			</c:forEach>
 			</tbody>
 	</table>
 	<br>
-	<input class="btn-btn-warning" type="button" onclick="history.back()" value="Volver atras">
+	<input class="btn btn-danger" type="button" onclick="history.back()" value="Volver atras">
 	<a class="btn btn-success" href="/proyecto-base-spring/torneo/${idUsuario}/agregarTorneo1">Agregar Torneo</a>
 	</div>
 </div>

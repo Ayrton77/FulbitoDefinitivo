@@ -35,7 +35,7 @@ public class ABMJugadorControlador extends SpringTest {
 	{
 		
 		ModelMap modelo1=new ModelMap();
-		abmjugadorservice.agregarJugador("axel", getSession().get(Equipo.class, 1L));
+		//abmjugadorservice.agregarJugador("axel", getSession().get(Equipo.class, 1L));
 		modelo1.put("listaDeJugadores", abmjugadorservice.mostrarUnaListaDeJugadoresPorIdDeEquipo(1L));
 		return new ModelAndView("prueba",modelo1);
 	}
@@ -51,25 +51,30 @@ public class ABMJugadorControlador extends SpringTest {
 	{
 		
 		ModelMap modeloABMJugador=new ModelMap();
+		modeloABMJugador.put("idTorneo", idTorneo);
+
 		modeloABMJugador.put("listaDeJugadores", abmjugadorservice.mostrarUnaListaDeJugadoresPorIdDeEquipo(idEquipo));
 		modeloABMJugador.put("idEquipo",idEquipo);
 		return new ModelAndView("listaDeJugadores",modeloABMJugador);
 	}
 	
 	//agregarUnJugador
-	@RequestMapping("{idEquipo}/agregarJugador1")
+	@RequestMapping("torneo/{idTorneo}/{idEquipo}/agregarJugador1")
 	public ModelAndView agregarUnJugadorAUnEquipo(
-			@PathVariable("idEquipo") Long idEquipo
+			@PathVariable("idEquipo") Long idEquipo,
+			@PathVariable("idTorneo") Long idTorneo
 			)
 	{
 		ModelMap modeloABMJugador=new ModelMap();
 		modeloABMJugador.put("jugador", new Jugador());
+		modeloABMJugador.put("idTorneo", idTorneo);
 		return new ModelAndView("agregarJugadorForm",modeloABMJugador);
 	}
 	//agregarJugador2
-	@RequestMapping(value="{idEquipo}/agregarJugador2",method=RequestMethod.POST)
+	@RequestMapping(value="torneo/{idTorneo}/{idEquipo}/agregarJugador2",method=RequestMethod.POST)
 	public ModelAndView agregarUnJugadorAUnEquipo2(
 			@PathVariable("idEquipo") Long idEquipo,
+			@PathVariable("idTorneo") Long idTorneo,
 			@RequestParam("nombreJugador") String nombreJugador
 			
 			)
@@ -78,19 +83,21 @@ public class ABMJugadorControlador extends SpringTest {
 		
 		abmjugadorservice.agregarJugador(nombreJugador, 
 				//optener id el equipo con la id
-				getSession().get(Equipo.class, idEquipo)
+				getSession().get(Equipo.class, idEquipo),idTorneo
 				
 				);
 		
-		
+		modeloABMJugador.put("idTorneo", idTorneo);
+
 		modeloABMJugador.put("listaDeJugadores", abmjugadorservice.mostrarUnaListaDeJugadoresPorIdDeEquipo(idEquipo));
 		modeloABMJugador.put("idEquipo", idEquipo);
 		return new ModelAndView("listaDeJugadores",modeloABMJugador);
 	}
 	//eliminarJugador
-	@RequestMapping("{idEquipo}/{idJugador}/eliminarJugador")
+	@RequestMapping("torneo/{idTorneo}/{idEquipo}/{idJugador}/eliminarJugador")
 	public ModelAndView eliminarJugador(
 			@PathVariable("idEquipo") Long idEquipo,
+			@PathVariable("idTorneo") Long idTorneo,
 			@PathVariable("idJugador") Long idJugador
 			
 			
@@ -100,15 +107,17 @@ public class ABMJugadorControlador extends SpringTest {
 		ModelMap modeloABMJugador=new ModelMap();
 		
 		abmjugadorservice.eliminarJugadorPorid(idJugador);
-		
+		modeloABMJugador.put("idTorneo", idTorneo);
+
 		modeloABMJugador.put("listaDeJugadores", abmjugadorservice.mostrarUnaListaDeJugadoresPorIdDeEquipo(idEquipo));
 		modeloABMJugador.put("idEquipo", idEquipo);
 		return new ModelAndView("listaDeJugadores",modeloABMJugador);
 	}
 	//modificarJugador
-	@RequestMapping("{idEquipo}/{idJugador}/modificarJugador1")
+	@RequestMapping("torneo/{idTorneo}/{idEquipo}/{idJugador}/modificarJugador1")
 	public ModelAndView modificarJugador1(
 			@PathVariable("idEquipo") Long idEquipo,
+			@PathVariable("idTorneo") Long idTorneo,
 			@PathVariable("idJugador") Long idJugador
 			
 			
@@ -122,14 +131,16 @@ public class ABMJugadorControlador extends SpringTest {
 		modeloABMJugador.put("listaDeJugadores", abmjugadorservice.mostrarUnaListaDeJugadoresPorIdDeEquipo(idEquipo));
 		modeloABMJugador.put("idEquipo", idEquipo);
 		modeloABMJugador.put("idJugador", idJugador);
-		
+		modeloABMJugador.put("idTorneo", idTorneo);
+		modeloABMJugador.put("jugador", new Jugador());
 		return new ModelAndView("modificarJugadorForm",modeloABMJugador);
 	}
 	//modificarJugador2
-	@RequestMapping("{idEquipo}/{idJugador}/modificarJugador2")
+	@RequestMapping("torneo/{idTorneo}/{idEquipo}/{idJugador}/modificarJugador2")
 	public ModelAndView modificarJugador1(
 			@PathVariable("idEquipo") Long idEquipo,
 			@PathVariable("idJugador") Long idJugador,
+			@PathVariable("idTorneo") Long idTorneo,
 			@RequestParam("nombreJugador")String nuevoNombreJugador
 			
 			
@@ -142,7 +153,8 @@ public class ABMJugadorControlador extends SpringTest {
 		modeloABMJugador.put("listaDeJugadores", abmjugadorservice.mostrarUnaListaDeJugadoresPorIdDeEquipo(idEquipo));
 		modeloABMJugador.put("idEquipo", idEquipo);
 		modeloABMJugador.put("idJugador", idJugador);
-		
+		modeloABMJugador.put("idTorneo", idTorneo);
+
 		return new ModelAndView("listaDeJugadores",modeloABMJugador);
 	}
 }

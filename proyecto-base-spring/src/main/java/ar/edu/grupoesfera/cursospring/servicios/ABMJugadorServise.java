@@ -11,7 +11,7 @@ import ar.edu.grupoesfera.cursospring.modelo.Jugador;
 public interface ABMJugadorServise {
 	
 	
-	public void agregarJugador(String nombreDeJugador,Equipo equipoJugador );
+	public void agregarJugador(String nombreDeJugador,Equipo equipoJugador,Long idTorneo );
 	
 	public void eliminarJugadorPorid(Long idJugador);
 	

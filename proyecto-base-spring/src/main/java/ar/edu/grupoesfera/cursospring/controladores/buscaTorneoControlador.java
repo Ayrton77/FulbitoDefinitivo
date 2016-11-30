@@ -20,7 +20,7 @@ import ar.edu.grupoesfera.cursospring.servicios.buscarTorneoService;
 
 @RestController
 @Transactional
-public class buscarJugadorControlador extends SpringTest {
+public class buscaTorneoControlador extends SpringTest {
 	
 	@Inject
 	private buscarTorneoService buscarTorneoService;
