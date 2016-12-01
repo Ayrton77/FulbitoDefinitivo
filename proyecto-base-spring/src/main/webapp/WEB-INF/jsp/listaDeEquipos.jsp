@@ -35,6 +35,9 @@
 			<div class="form-group">
 				<a class="btn btn-success" href="/proyecto-base-spring/torneo/${idTorneo}/agregarEquipo1">Agregar Equipo</a>
 			</div>
+			<%-- <div class="form-group">
+				<a class="btn btn-info" href="/proyecto-base-spring/usuario/${iduser}/agregarTorneo2">Menu torneos</a>
+			</div> --%>
 			<div class="form-group">
 				<input type="button" class="btn btn-danger" onclick="history.back()" value="Volver atras">
 			</div>
