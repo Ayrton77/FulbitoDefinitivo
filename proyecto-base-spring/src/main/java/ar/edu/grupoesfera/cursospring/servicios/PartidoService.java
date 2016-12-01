@@ -42,4 +42,6 @@ public interface PartidoService {
 			public void agregaRojaJugador(Long idJugador);
 			public void quitarRojaJugador(Long idJugador);
 			public List<Jugador> traerGoleadores(Long idTorneo);
+			public void setearDisponibilidad (Long idEquipo);
+			public List<Jugador> traerJugadoresDisponibles(Long IdEquipo);
 }	

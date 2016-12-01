@@ -32,6 +32,8 @@ public class Jugador {
 	@Column
 	private Boolean estaHabilitado=true;
 	
+	@Column
+	private Integer fechasSinJugar=0;
 	
 	//bdd--
 		@ManyToOne(fetch = FetchType.LAZY)
@@ -159,6 +161,20 @@ public class Jugador {
 
 	public void setTorneoJugador(Torneo torneoJugador) {
 		this.torneoJugador = torneoJugador;
+	}
+
+
+
+
+	public Integer getFechasSinJugar() {
+		return fechasSinJugar;
+	}
+
+
+
+
+	public void setFechasSinJugar(Integer fechasSinJugar) {
+		this.fechasSinJugar = fechasSinJugar;
 	}
 	
 	

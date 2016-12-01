@@ -18,7 +18,6 @@
       <a class="navbar-brand" href="#">Fulbito</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="#">Home</a></li>
       <li><a href="/proyecto-base-spring/usuario/${userActivo.getIdUsuarioLoguiado()}/listaDeTorneos">Ver Mis Torneos</a></li> 
     </ul>
     <ul class="nav navbar-nav navbar-right">

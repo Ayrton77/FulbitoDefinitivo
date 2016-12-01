@@ -127,5 +127,16 @@ public class PartidoServiceImpl implements PartidoService{
 	public List<Jugador> traerGoleadores(Long idTorneo) {
 		return partidoDao.traerGoleadores(idTorneo);
 	}
+
+	@Override
+	public void setearDisponibilidad(Long idEquipo) {
+		partidoDao.setearDisponibilidad(idEquipo);
+		
+	}
+
+	@Override
+	public List<Jugador> traerJugadoresDisponibles(Long IdEquipo) {
+		return partidoDao.traerJugadoresDisponibles(IdEquipo);
+	}
 }
 

@@ -21,7 +21,7 @@
 			<c:forEach var="list" items="${listaJugadoresEquipo1}">
 	
 				<tr>
-					<td>${list.getNombreJugador()}</td>
+					<td>${list.getNombreJugador()} Disponibilidad:${list.getEstaHabilitado()}</td>
 				</tr>
 	
 			</c:forEach>
@@ -35,7 +35,7 @@
 			<c:forEach var="list2" items="${listaJugadoresEquipo2}">
 	
 				<tr>
-					<td>${list2.getNombreJugador()}</td>
+					<td>${list2.getNombreJugador()} Disponibilidad:${list2.getEstaHabilitado()} </td>
 				</tr>
 	
 			</c:forEach>

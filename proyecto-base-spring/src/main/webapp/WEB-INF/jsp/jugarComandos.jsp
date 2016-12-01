@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">s">
+ <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
+ 
 <title>	Comandos de juego</title>
 </head>
 <body>
@@ -110,7 +111,7 @@
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/2/quitarGol" modelAttribute="jugador" method="post" >
 				<div class="form-group">
-					<form:select path="Idjugador">
+					<form:select class="form-control" path="Idjugador">
 						<c:forEach var="list" items="${listaDeJugadores2}">
 							<form:option value="${list.getIdjugador()}">${list.getNombreJugador()}</form:option>
 						</c:forEach>
@@ -158,7 +159,7 @@
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/2/quitarRoja" modelAttribute="jugador" method="post" >
 				<div class="form-group">
-					<form:select path="Idjugador">
+					<form:select class="form-control" path="Idjugador">
 						<c:forEach var="list" items="${listaDeJugadores2}">
 							<form:option value="${list.getIdjugador()}">${list.getNombreJugador()}</form:option>
 						</c:forEach>
@@ -174,7 +175,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6 col-md-offset">
+			<div class="col-md-6 col-md-offset-3">
 				<a class="btn btn-info" href="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/resultado"> Finalizar  </a>
 			</div>
 		</div>

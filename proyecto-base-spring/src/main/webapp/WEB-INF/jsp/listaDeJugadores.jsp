@@ -36,6 +36,9 @@
 			<div class="form-group">
 				<input class="btn btn-danger" type="button" onclick="history.back()" value="volver atras">
 			</div>
+			<div class="form-group">
+				<!-- <a href=""></a> -->
+			</div>
 		</div>
 	</div>
 </body>

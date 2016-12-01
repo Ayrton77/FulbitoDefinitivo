@@ -32,9 +32,14 @@
 				</tbody>
 			</table>
 			<br>
-			<a class="btn btn-success" href="/proyecto-base-spring/torneo/${idTorneo}/agregarEquipo1">Agregar Equipo</a>
-			<input type="button" class="btn btn-danger" onclick="history.back()" value="Volver atras">
+			<div class="form-group">
+				<a class="btn btn-success" href="/proyecto-base-spring/torneo/${idTorneo}/agregarEquipo1">Agregar Equipo</a>
+			</div>
+			<div class="form-group">
+				<input type="button" class="btn btn-danger" onclick="history.back()" value="Volver atras">
+			</div>
 	</div>
+	
 </div>
 </body>
 </html>

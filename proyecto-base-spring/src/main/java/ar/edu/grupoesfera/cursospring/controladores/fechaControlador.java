@@ -10,10 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.grupoesfera.cursospring.dao.SpringTest;
+import ar.edu.grupoesfera.cursospring.modelo.Equipo;
 import ar.edu.grupoesfera.cursospring.modelo.Fecha;
 import ar.edu.grupoesfera.cursospring.modelo.Torneo;
+import ar.edu.grupoesfera.cursospring.modelo.UsuarioLoguiado;
+import ar.edu.grupoesfera.cursospring.servicios.ABMEquipoService;
+import ar.edu.grupoesfera.cursospring.servicios.ABMJugadorServise;
+import ar.edu.grupoesfera.cursospring.servicios.ABMTorneoService;
 import ar.edu.grupoesfera.cursospring.servicios.FechaService;
 import ar.edu.grupoesfera.cursospring.servicios.PartidoService;
+import ar.edu.grupoesfera.cursospring.servicios.RegistroLoginService;
 
 @RestController
 @Transactional
@@ -23,14 +29,42 @@ public class fechaControlador extends SpringTest {
 	
 	@Inject
 	private PartidoService partidoService;
+	
+	@Inject 
+	private RegistroLoginService rg ;
+	@Inject 
+	private ABMTorneoService abmt ;
+	
+	@Inject 
+	private ABMEquipoService abme ;
+	@Inject 
+	private ABMJugadorServise abmj ;
+	
+	@Inject
+	private FechaService fs;
+	
 	//lista
 	@RequestMapping("Usuario/{idUsuario}/Torneo/{idTorneo}/listaDefechas")
 	public ModelAndView listaDeFechas(
 		@PathVariable("idUsuario")Long	idUsuario,
 		@PathVariable("idTorneo")Long	idTorneo
-	)
+	) throws Exception
 	{
+		//--quitar
 		
+		
+		
+		rg.crearUsuario("a", "a", "a");
+		abmt.crearUnTorneo("t1", getSession().get(UsuarioLoguiado.class, 1l));
+		abme.crearUnEquipo("e1", getSession().get(Torneo.class, 1l));
+		abme.crearUnEquipo("e2", getSession().get(Torneo.class, 1l));
+		abmj.agregarJugador("j1", getSession().get(Equipo.class, 1l),1l);
+		abmj.agregarJugador("j2", getSession().get(Equipo.class, 2l),1l);
+		abmj.agregarJugador("j3", getSession().get(Equipo.class, 2l),1l);
+		fs.crearFecha(getSession().get(Torneo.class, 1l));
+		partidoService.crearPartido(getSession().get(Fecha.class, 1l));
+		partidoService.agreagarEquiposAlPatido(1l, 2l, 1l);
+		//--
 	
 		ModelMap modeloFecha=new ModelMap();
 		modeloFecha.put("listaDeFechas", fechaServise.mostrarListaDeFechasPorTorneo(idTorneo));

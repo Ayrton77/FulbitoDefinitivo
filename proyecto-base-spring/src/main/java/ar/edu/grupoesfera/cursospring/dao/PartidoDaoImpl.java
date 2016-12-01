@@ -230,5 +230,35 @@ public class PartidoDaoImpl extends SpringTest implements PartidoDao {
 			return listaDeJug;
 			
 		}
+		@Override
+		public void setearDisponibilidad(Long idEquipo) {
+			for(Jugador each:listaDeJugadoresXequipo(idEquipo))
+			{
+				if(each.getTarjetasAmarrillas()>=6 && each.getFechasSinJugar()==0)
+				{
+					each.setEstaHabilitado(false);
+					each.setFechasSinJugar(each.getFechasSinJugar()+1);
+				}
+				else if(each.getTarjetasRojas()>=1 && each.getFechasSinJugar()==0)
+				{
+					each.setEstaHabilitado(false);
+					each.setFechasSinJugar(each.getFechasSinJugar()+1);
+				}
+				else
+				{
+					each.setEstaHabilitado(true);
+				}
+				
+			}
+			
+		}
+		@Override
+		public List<Jugador> traerJugadoresDisponibles(Long IdEquipo) {
+			Long idEquipo2=IdEquipo;
+			final List<Jugador> listaDeJug=getSession().createCriteria(Jugador.class).
+					add(Restrictions.eq("equipo",getSession().get(Equipo.class, idEquipo2)
+							)).add(Restrictions.eq("estaHabilitado", true)).list();
+			return listaDeJug;
+		}
 		
 }
