@@ -14,7 +14,7 @@
 	<div class="container">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="alert alert-danger">
-	 			 <strong>Se elimino al Perdedor!</strong> <a class="btn btn-success" href="/proyecto-base-spring/usuario/1/listaDeTorneos">Siguiente</a>
+	 			 <strong>Se elimino al Perdedor!</strong> <a class="btn btn-success" href="/proyecto-base-spring/Torneo/${idTorneo}/listaDefechas">Siguiente</a>
 			</div>
 		</div>
 	</div>
