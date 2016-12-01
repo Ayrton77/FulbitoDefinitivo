@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.grupoesfera.cursospring.dao.SpringTest;
 import ar.edu.grupoesfera.cursospring.modelo.Equipo;
 import ar.edu.grupoesfera.cursospring.modelo.Torneo;
+import ar.edu.grupoesfera.cursospring.modelo.UsuarioLoguiado;
 import ar.edu.grupoesfera.cursospring.servicios.ABMEquipoService;
 
 @RestController
@@ -38,7 +39,6 @@ public class ABMEquipoControlador extends SpringTest{
 		ModelMap modeloABMEquipo=new ModelMap();
 		modeloABMEquipo.put("listaDeEquipos",ABMEquipoService.mostrarListaDeEquiposDeUnTorneo(idTorneo));
 		modeloABMEquipo.put("idTorneo", idTorneo);
-		
 		
 		return new ModelAndView("listaDeEquipos",modeloABMEquipo);
 	}

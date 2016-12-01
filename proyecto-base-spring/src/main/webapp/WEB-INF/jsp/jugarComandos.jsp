@@ -60,7 +60,7 @@
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/1/quitarAmarrilla" modelAttribute="jugador" method="post" >
 				<div class="form-group">
-					<form:select class="form-group" path="Idjugador">
+					<form:select class="form-control" path="Idjugador">
 						<c:forEach var="list" items="${listaDeJugadores1}">
 							<form:option value="${list.getIdjugador()}">${list.getNombreJugador()}</form:option>
 						</c:forEach>
@@ -165,13 +165,11 @@
 						</c:forEach>
 					</form:select>
 				</div>
-				<div class="form*group">
+				<div class="form-group">
 					<input class="btn btn-success" type="submit" value="Quitar roja2">
 				</div>
 				</form:form>
-				<div class="form-group">
-					<a class="btn btn-danger" href="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/2/quitarGol">Quitar Gol Equipo2  </a>
-				</div>
+
 			</div>
 		</div>
 		<div class="row">
