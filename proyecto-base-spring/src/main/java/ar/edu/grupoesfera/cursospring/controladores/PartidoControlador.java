@@ -260,7 +260,6 @@ public class PartidoControlador extends SpringTest {
 		{
 			ModelMap modeloPartido=new ModelMap();
 			
-			partidoService.agregarGol(numeroEquipo, idPartido);
 			partidoService.agregaAmarillaJugador(Idjugador);
 				//goles
 			
@@ -294,7 +293,6 @@ public class PartidoControlador extends SpringTest {
 		{
 			ModelMap modeloPartido=new ModelMap();
 			
-			partidoService.quitarGol(numeroEquipo, idPartido);
 			partidoService.quitarAmarillaJugador(Idjugador);
 			//goles
 		
@@ -328,7 +326,6 @@ public class PartidoControlador extends SpringTest {
 				{
 					ModelMap modeloPartido=new ModelMap();
 					
-					partidoService.agregarGol(numeroEquipo, idPartido);
 					partidoService.agregaRojaJugador(Idjugador);
 						//goles
 					
@@ -362,7 +359,6 @@ public class PartidoControlador extends SpringTest {
 				{
 					ModelMap modeloPartido=new ModelMap();
 					
-					partidoService.quitarGol(numeroEquipo, idPartido);
 					partidoService.quitarRojaJugador(Idjugador);
 					//goles
 				

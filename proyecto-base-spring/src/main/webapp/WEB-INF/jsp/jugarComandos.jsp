@@ -43,7 +43,7 @@
 					</form:select>
 				</div>
 				<div class="form-grup">
-					<input class="btn btn-danger" type="submit" value="quitar Gol equipo 1">	
+					<input class="btn btn-danger" type="submit" value="Quitar Gol equipo ">	
 				</div>
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/1/agregarAmarrilla" modelAttribute="jugador" method="post" >
@@ -79,7 +79,7 @@
 					</form:select>
 				</div>
 				<div class="form-group">
-					<input class="btn btn-danger" type="submit" value="agregar roja">
+					<input class="btn btn-danger" type="submit" value="Agregar roja">
 				</div>
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/1/quitarRoja" modelAttribute="jugador" method="post" >
@@ -106,7 +106,7 @@
 					</form:select>
 				</div>
 				<div class="form-group">
-					<input class="btn btn-success" type="submit" value="Agregar Gol Equipo 2">
+					<input class="btn btn-success" type="submit" value="Agregar Gol Equipo ">
 				</div>
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/2/quitarGol" modelAttribute="jugador" method="post" >
@@ -118,7 +118,7 @@
 					</form:select>
 				</div>
 				<div class="form-group">
-					<input class="btn btn-danger" type="submit" value="Quitar Gol equipo 2">
+					<input class="btn btn-danger" type="submit" value="Quitar Gol equipo ">
 				</div>
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/2/agregarAmarrilla" modelAttribute="jugador" method="post" >
@@ -130,7 +130,7 @@
 					</form:select>
 				</div>
 				<div class="form-group">
-					<input class="btn btn-warning" type="submit" value="Agregar amarilla 2">
+					<input class="btn btn-warning" type="submit" value="Agregar amarilla ">
 				</div>
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/2/quitarAmarrilla" modelAttribute="jugador" method="post" >
@@ -142,7 +142,7 @@
 					</form:select>
 				</div>
 				<div class="form-group">
-					<input class="btn btn-success" type="submit" value="Quitar amarilla 2">
+					<input class="btn btn-success" type="submit" value="Quitar amarilla ">
 				</div>
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/2/agregarRoja" modelAttribute="jugador" method="post" >
@@ -154,7 +154,7 @@
 					</form:select>
 				</div>
 				<div class="form-group">
-					<input class="btn btn-danger" type="submit" value="Agregar roja 2">
+					<input class="btn btn-danger" type="submit" value="Agregar roja ">
 				</div>
 				</form:form>
 				<form:form action="/proyecto-base-spring/Torneo/${idTorneo}/partido/${idPartido}/${idEquipo1}/${idEquipo2}/equipo/2/quitarRoja" modelAttribute="jugador" method="post" >
@@ -166,7 +166,7 @@
 					</form:select>
 				</div>
 				<div class="form-group">
-					<input class="btn btn-success" type="submit" value="Quitar roja2">
+					<input class="btn btn-success" type="submit" value="Quitar roja">
 				</div>
 				</form:form>
 

@@ -50,21 +50,7 @@ public class fechaControlador extends SpringTest {
 		@PathVariable("idTorneo")Long	idTorneo
 	) throws Exception
 	{
-		//--quitar
 		
-		
-		
-		rg.crearUsuario("a", "a", "a");
-		abmt.crearUnTorneo("t1", getSession().get(UsuarioLoguiado.class, 1l));
-		abme.crearUnEquipo("e1", getSession().get(Torneo.class, 1l));
-		abme.crearUnEquipo("e2", getSession().get(Torneo.class, 1l));
-		abmj.agregarJugador("j1", getSession().get(Equipo.class, 1l),1l);
-		abmj.agregarJugador("j2", getSession().get(Equipo.class, 2l),1l);
-		abmj.agregarJugador("j3", getSession().get(Equipo.class, 2l),1l);
-		fs.crearFecha(getSession().get(Torneo.class, 1l));
-		partidoService.crearPartido(getSession().get(Fecha.class, 1l));
-		partidoService.agreagarEquiposAlPatido(1l, 2l, 1l);
-		//--
 	
 		ModelMap modeloFecha=new ModelMap();
 		modeloFecha.put("listaDeFechas", fechaServise.mostrarListaDeFechasPorTorneo(idTorneo));
